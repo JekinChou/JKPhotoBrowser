@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03E651BBE3B8FC56C1811E53 /* libPods-JKPhotoBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBBAD1CEFD18382DA55EC94 /* libPods-JKPhotoBrowser.a */; };
+		1849D3BA20B53E1300697616 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3B920B53E1300697616 /* AppDelegate.m */; };
+		1849D3BD20B53E1300697616 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3BC20B53E1300697616 /* ViewController.m */; };
+		1849D3C020B53E1300697616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849D3BE20B53E1300697616 /* Main.storyboard */; };
+		1849D3C220B53E1600697616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1849D3C120B53E1600697616 /* Assets.xcassets */; };
+		1849D3C520B53E1600697616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849D3C320B53E1600697616 /* LaunchScreen.storyboard */; };
+		1849D3C820B53E1600697616 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3C720B53E1600697616 /* main.m */; };
+		1849D3D020B542AD00697616 /* JKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3CF20B542AD00697616 /* JKPhotoBrowser.m */; };
+		1849D3DA20B5474000697616 /* JKImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3D920B5474000697616 /* JKImageModel.m */; };
+		1849D3DF20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3DE20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m */; };
+		1849D3E320B56AD300697616 /* JKPhotoTransitionManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3E220B56AD300697616 /* JKPhotoTransitionManger.m */; };
+		1849D3E720B5704B00697616 /* JKPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */; };
+		1849D3EC20B576BE00697616 /* JKPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3EB20B576BE00697616 /* JKPhotoBrowserCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1849D3B520B53E1300697616 /* JKPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1849D3B820B53E1300697616 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1849D3B920B53E1300697616 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1849D3BB20B53E1300697616 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1849D3BC20B53E1300697616 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1849D3BF20B53E1300697616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1849D3C120B53E1600697616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1849D3C420B53E1600697616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1849D3C620B53E1600697616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1849D3C720B53E1600697616 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1849D3CE20B542AD00697616 /* JKPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowser.h; sourceTree = "<group>"; };
+		1849D3CF20B542AD00697616 /* JKPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowser.m; sourceTree = "<group>"; };
+		1849D3D220B5439500697616 /* JKPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoModel.h; sourceTree = "<group>"; };
+		1849D3D420B5455C00697616 /* JKPhotoBrowserDataSouce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDataSouce.h; sourceTree = "<group>"; };
+		1849D3D520B5462E00697616 /* JKPhotoMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoMacro.h; sourceTree = "<group>"; };
+		1849D3D820B5474000697616 /* JKImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageModel.h; sourceTree = "<group>"; };
+		1849D3D920B5474000697616 /* JKImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKImageModel.m; sourceTree = "<group>"; };
+		1849D3DB20B5615400697616 /* JKPhotoBrowserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDelegate.h; sourceTree = "<group>"; };
+		1849D3DC20B5647300697616 /* JKPhotoIndexPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoIndexPage.h; sourceTree = "<group>"; };
+		1849D3DD20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserViewFlowLayout.h; sourceTree = "<group>"; };
+		1849D3DE20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserViewFlowLayout.m; sourceTree = "<group>"; };
+		1849D3E020B566D900697616 /* JKPhotoBrowserStateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserStateProtocol.h; sourceTree = "<group>"; };
+		1849D3E120B56AD300697616 /* JKPhotoTransitionManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionManger.h; sourceTree = "<group>"; };
+		1849D3E220B56AD300697616 /* JKPhotoTransitionManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoTransitionManger.m; sourceTree = "<group>"; };
+		1849D3E520B5704B00697616 /* JKPhotoBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserView.h; sourceTree = "<group>"; };
+		1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserView.m; sourceTree = "<group>"; };
+		1849D3E820B570E100697616 /* JKImageBrowserScreenOrientationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageBrowserScreenOrientationProtocol.h; sourceTree = "<group>"; };
+		1849D3EA20B576BE00697616 /* JKPhotoBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserCell.h; sourceTree = "<group>"; };
+		1849D3EB20B576BE00697616 /* JKPhotoBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserCell.m; sourceTree = "<group>"; };
+		1849D3EE20B594BA00697616 /* JKPhotoTransitionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionProtocol.h; sourceTree = "<group>"; };
+		55C78092177D7BE74792AC85 /* Pods-JKPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		5EBBAD1CEFD18382DA55EC94 /* libPods-JKPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKPhotoBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93B4C02091BF268D8F9A3604 /* Pods-JKPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1849D3B220B53E1300697616 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E651BBE3B8FC56C1811E53 /* libPods-JKPhotoBrowser.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0375ED444CC3284C9BF23C18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55C78092177D7BE74792AC85 /* Pods-JKPhotoBrowser.debug.xcconfig */,
+				93B4C02091BF268D8F9A3604 /* Pods-JKPhotoBrowser.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1849D3AC20B53E1300697616 = {
+			isa = PBXGroup;
+			children = (
+				1849D3B720B53E1300697616 /* JKPhotoBrowser */,
+				1849D3B620B53E1300697616 /* Products */,
+				0375ED444CC3284C9BF23C18 /* Pods */,
+				4538FBE546994300D6238C3F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1849D3B620B53E1300697616 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3B520B53E1300697616 /* JKPhotoBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1849D3B720B53E1300697616 /* JKPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3D120B542C100697616 /* JKPhotoBrowserKit */,
+				1849D3B820B53E1300697616 /* AppDelegate.h */,
+				1849D3B920B53E1300697616 /* AppDelegate.m */,
+				1849D3BB20B53E1300697616 /* ViewController.h */,
+				1849D3BC20B53E1300697616 /* ViewController.m */,
+				1849D3BE20B53E1300697616 /* Main.storyboard */,
+				1849D3C120B53E1600697616 /* Assets.xcassets */,
+				1849D3C320B53E1600697616 /* LaunchScreen.storyboard */,
+				1849D3C620B53E1600697616 /* Info.plist */,
+				1849D3C720B53E1600697616 /* main.m */,
+			);
+			path = JKPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		1849D3D120B542C100697616 /* JKPhotoBrowserKit */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3E420B56AD900697616 /* Manger */,
+				1849D3D720B546EB00697616 /* CoreStructure */,
+				1849D3D620B5463D00697616 /* Utilities */,
+				1849D3D320B5439D00697616 /* Protocol */,
+				1849D3CE20B542AD00697616 /* JKPhotoBrowser.h */,
+				1849D3CF20B542AD00697616 /* JKPhotoBrowser.m */,
+			);
+			path = JKPhotoBrowserKit;
+			sourceTree = "<group>";
+		};
+		1849D3D320B5439D00697616 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3D220B5439500697616 /* JKPhotoModel.h */,
+				1849D3EE20B594BA00697616 /* JKPhotoTransitionProtocol.h */,
+				1849D3D420B5455C00697616 /* JKPhotoBrowserDataSouce.h */,
+				1849D3DB20B5615400697616 /* JKPhotoBrowserDelegate.h */,
+				1849D3DC20B5647300697616 /* JKPhotoIndexPage.h */,
+				1849D3E020B566D900697616 /* JKPhotoBrowserStateProtocol.h */,
+				1849D3E820B570E100697616 /* JKImageBrowserScreenOrientationProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1849D3D620B5463D00697616 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3D520B5462E00697616 /* JKPhotoMacro.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1849D3D720B546EB00697616 /* CoreStructure */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3D820B5474000697616 /* JKImageModel.h */,
+				1849D3D920B5474000697616 /* JKImageModel.m */,
+				1849D3DD20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.h */,
+				1849D3DE20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m */,
+				1849D3ED20B576C700697616 /* Cell */,
+				1849D3E920B5769300697616 /* View */,
+			);
+			path = CoreStructure;
+			sourceTree = "<group>";
+		};
+		1849D3E420B56AD900697616 /* Manger */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3E120B56AD300697616 /* JKPhotoTransitionManger.h */,
+				1849D3E220B56AD300697616 /* JKPhotoTransitionManger.m */,
+			);
+			path = Manger;
+			sourceTree = "<group>";
+		};
+		1849D3E920B5769300697616 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3E520B5704B00697616 /* JKPhotoBrowserView.h */,
+				1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1849D3ED20B576C700697616 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1849D3EA20B576BE00697616 /* JKPhotoBrowserCell.h */,
+				1849D3EB20B576BE00697616 /* JKPhotoBrowserCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4538FBE546994300D6238C3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EBBAD1CEFD18382DA55EC94 /* libPods-JKPhotoBrowser.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1849D3B420B53E1300697616 /* JKPhotoBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1849D3CB20B53E1600697616 /* Build configuration list for PBXNativeTarget "JKPhotoBrowser" */;
+			buildPhases = (
+				1537C2B0A9CDD21237C0DC15 /* [CP] Check Pods Manifest.lock */,
+				1849D3B120B53E1300697616 /* Sources */,
+				1849D3B220B53E1300697616 /* Frameworks */,
+				1849D3B320B53E1300697616 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKPhotoBrowser;
+			productName = JKPhotoBrowser;
+			productReference = 1849D3B520B53E1300697616 /* JKPhotoBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1849D3AD20B53E1300697616 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = zhangjie;
+				TargetAttributes = {
+					1849D3B420B53E1300697616 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 1849D3B020B53E1300697616 /* Build configuration list for PBXProject "JKPhotoBrowser" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1849D3AC20B53E1300697616;
+			productRefGroup = 1849D3B620B53E1300697616 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1849D3B420B53E1300697616 /* JKPhotoBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1849D3B320B53E1300697616 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1849D3C520B53E1600697616 /* LaunchScreen.storyboard in Resources */,
+				1849D3C220B53E1600697616 /* Assets.xcassets in Resources */,
+				1849D3C020B53E1300697616 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1537C2B0A9CDD21237C0DC15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JKPhotoBrowser-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1849D3B120B53E1300697616 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1849D3E320B56AD300697616 /* JKPhotoTransitionManger.m in Sources */,
+				1849D3BD20B53E1300697616 /* ViewController.m in Sources */,
+				1849D3C820B53E1600697616 /* main.m in Sources */,
+				1849D3EC20B576BE00697616 /* JKPhotoBrowserCell.m in Sources */,
+				1849D3D020B542AD00697616 /* JKPhotoBrowser.m in Sources */,
+				1849D3BA20B53E1300697616 /* AppDelegate.m in Sources */,
+				1849D3E720B5704B00697616 /* JKPhotoBrowserView.m in Sources */,
+				1849D3DA20B5474000697616 /* JKImageModel.m in Sources */,
+				1849D3DF20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1849D3BE20B53E1300697616 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1849D3BF20B53E1300697616 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1849D3C320B53E1600697616 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1849D3C420B53E1600697616 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1849D3C920B53E1600697616 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1849D3CA20B53E1600697616 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1849D3CC20B53E1600697616 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C78092177D7BE74792AC85 /* Pods-JKPhotoBrowser.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UM82K4NNN9;
+				INFOPLIST_FILE = JKPhotoBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jekin.JKPhotoBrowser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1849D3CD20B53E1600697616 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93B4C02091BF268D8F9A3604 /* Pods-JKPhotoBrowser.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UM82K4NNN9;
+				INFOPLIST_FILE = JKPhotoBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jekin.JKPhotoBrowser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1849D3B020B53E1300697616 /* Build configuration list for PBXProject "JKPhotoBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1849D3C920B53E1600697616 /* Debug */,
+				1849D3CA20B53E1600697616 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1849D3CB20B53E1600697616 /* Build configuration list for PBXNativeTarget "JKPhotoBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1849D3CC20B53E1600697616 /* Debug */,
+				1849D3CD20B53E1600697616 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1849D3AD20B53E1300697616 /* Project object */;
+}
