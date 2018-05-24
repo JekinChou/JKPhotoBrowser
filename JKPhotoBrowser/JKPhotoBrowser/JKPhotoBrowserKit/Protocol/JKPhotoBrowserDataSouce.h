@@ -25,14 +25,14 @@
  @param imageBrowser 当前图片浏览器
  @return 图片数量
  */
-- (NSInteger)numberInYBImageBrowser:(JKPhotoBrowser *)imageBrowser;
+- (NSInteger)numberInPhotoBrowser:(JKPhotoBrowser *)imageBrowser;
 
 /**
  返回当前 index 图片对应的数据模型
  
- @param imageBrowser 当前图片浏览器
+ @param browser 当前图片浏览器
  @param index 当前下标
  @return 数据模型
  */
-- (id<JKPhotoModel>)yBImageBrowser:(JKPhotoBrowser *)imageBrowser modelForCellAtIndex:(NSInteger)index;
+- (id<JKPhotoModel>)photoBrowser:(JKPhotoBrowser *)browser modelForCellAtIndex:(NSInteger)index;
 @end

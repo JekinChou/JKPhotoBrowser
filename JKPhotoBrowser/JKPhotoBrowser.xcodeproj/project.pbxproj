@@ -20,6 +20,9 @@
 		1849D3E320B56AD300697616 /* JKPhotoTransitionManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3E220B56AD300697616 /* JKPhotoTransitionManger.m */; };
 		1849D3E720B5704B00697616 /* JKPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */; };
 		1849D3EC20B576BE00697616 /* JKPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849D3EB20B576BE00697616 /* JKPhotoBrowserCell.m */; };
+		1868997820B68AC600A141C0 /* JKPhtotProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997720B68AC600A141C0 /* JKPhtotProgressView.m */; };
+		1868997B20B695C000A141C0 /* JKPhtotPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997A20B695C000A141C0 /* JKPhtotPageView.m */; };
+		1868997E20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997D20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +52,15 @@
 		1849D3E220B56AD300697616 /* JKPhotoTransitionManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoTransitionManger.m; sourceTree = "<group>"; };
 		1849D3E520B5704B00697616 /* JKPhotoBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserView.h; sourceTree = "<group>"; };
 		1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserView.m; sourceTree = "<group>"; };
-		1849D3E820B570E100697616 /* JKImageBrowserScreenOrientationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageBrowserScreenOrientationProtocol.h; sourceTree = "<group>"; };
 		1849D3EA20B576BE00697616 /* JKPhotoBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserCell.h; sourceTree = "<group>"; };
 		1849D3EB20B576BE00697616 /* JKPhotoBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserCell.m; sourceTree = "<group>"; };
 		1849D3EE20B594BA00697616 /* JKPhotoTransitionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionProtocol.h; sourceTree = "<group>"; };
+		1868997620B68AC600A141C0 /* JKPhtotProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhtotProgressView.h; sourceTree = "<group>"; };
+		1868997720B68AC600A141C0 /* JKPhtotProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhtotProgressView.m; sourceTree = "<group>"; };
+		1868997920B695C000A141C0 /* JKPhtotPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhtotPageView.h; sourceTree = "<group>"; };
+		1868997A20B695C000A141C0 /* JKPhtotPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhtotPageView.m; sourceTree = "<group>"; };
+		1868997C20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhtotBrowserAnimatedTransitioning.h; sourceTree = "<group>"; };
+		1868997D20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhtotBrowserAnimatedTransitioning.m; sourceTree = "<group>"; };
 		55C78092177D7BE74792AC85 /* Pods-JKPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		5EBBAD1CEFD18382DA55EC94 /* libPods-JKPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKPhotoBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B4C02091BF268D8F9A3604 /* Pods-JKPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,7 +144,6 @@
 				1849D3DB20B5615400697616 /* JKPhotoBrowserDelegate.h */,
 				1849D3DC20B5647300697616 /* JKPhotoIndexPage.h */,
 				1849D3E020B566D900697616 /* JKPhotoBrowserStateProtocol.h */,
-				1849D3E820B570E100697616 /* JKImageBrowserScreenOrientationProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -156,6 +163,8 @@
 				1849D3D920B5474000697616 /* JKImageModel.m */,
 				1849D3DD20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.h */,
 				1849D3DE20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m */,
+				1868997C20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.h */,
+				1868997D20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m */,
 				1849D3ED20B576C700697616 /* Cell */,
 				1849D3E920B5769300697616 /* View */,
 			);
@@ -176,6 +185,10 @@
 			children = (
 				1849D3E520B5704B00697616 /* JKPhotoBrowserView.h */,
 				1849D3E620B5704B00697616 /* JKPhotoBrowserView.m */,
+				1868997620B68AC600A141C0 /* JKPhtotProgressView.h */,
+				1868997720B68AC600A141C0 /* JKPhtotProgressView.m */,
+				1868997920B695C000A141C0 /* JKPhtotPageView.h */,
+				1868997A20B695C000A141C0 /* JKPhtotPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,12 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1868997E20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */,
 				1849D3E320B56AD300697616 /* JKPhotoTransitionManger.m in Sources */,
 				1849D3BD20B53E1300697616 /* ViewController.m in Sources */,
 				1849D3C820B53E1600697616 /* main.m in Sources */,
 				1849D3EC20B576BE00697616 /* JKPhotoBrowserCell.m in Sources */,
 				1849D3D020B542AD00697616 /* JKPhotoBrowser.m in Sources */,
+				1868997B20B695C000A141C0 /* JKPhtotPageView.m in Sources */,
 				1849D3BA20B53E1300697616 /* AppDelegate.m in Sources */,
+				1868997820B68AC600A141C0 /* JKPhtotProgressView.m in Sources */,
 				1849D3E720B5704B00697616 /* JKPhotoBrowserView.m in Sources */,
 				1849D3DA20B5474000697616 /* JKImageModel.m in Sources */,
 				1849D3DF20B5658A00697616 /* JKPhotoBrowserViewFlowLayout.m in Sources */,

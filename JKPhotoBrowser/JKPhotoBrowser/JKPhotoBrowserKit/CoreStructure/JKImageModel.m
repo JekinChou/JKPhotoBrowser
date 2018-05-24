@@ -7,14 +7,15 @@
 //
 
 #import "JKImageModel.h"
-#import <YYWebImage.h>
+#import <YYWebImage/YYWebImage.h>
+#import "JKPhotoMacro.h"
 @interface JKImageModel () {
     YYWebImageOperation *_currentOperation;
 }
 
 @end
 @implementation JKImageModel
-@synthesize briefImage = _briefImage,gifName = _gifName,localImage = _localImage,url = _url,progress = _progress,animatedImage = _animatedImage,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState;
+@synthesize briefImage = _briefImage,gifName = _gifName,localImage = _localImage,url = _url,progress = _progress,animatedImage = _animatedImage,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState,sourceImageView = _sourceImageView;
 #pragma mark - initialize
 - (instancetype)init {
     if (self = [super init]) {
@@ -42,27 +43,30 @@
         weakself.progress = receivedSize/expectedSize;
         progress(receivedSize,expectedSize);
     } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        if (stage != YYWebImageStageFinished)return;
-        if (error&&errorCallback&&!image) {
-            weakself.downState = JKDownLoadStateFail;
-            errorCallback(error);
-            return ;
-        }else if (image){
-          weakself.downState = JKDownLoadStateSuccessful;
-          weakself.localImage = image;
-        successful();
-        }else {
-           weakself.downState = JKDownLoadStateFail;
-            NSError *error = [NSError errorWithDomain:@"未知错误" code:-9999 userInfo:nil];
-            errorCallback(error);
-        }
+        JK_MAINTHREAD_SYNC(^{
+            if (stage != YYWebImageStageFinished)return;
+            if (error&&errorCallback&&!image) {
+                weakself.downState = JKDownLoadStateFail;
+                errorCallback(error);
+                return ;
+            }else if (image){
+                weakself.localImage = image;
+                successful();
+            }else {
+                weakself.downState = JKDownLoadStateFail;
+                NSError *error = [NSError errorWithDomain:@"未知错误" code:-9999 userInfo:nil];
+                errorCallback(error);
+            }
+        });
+        
     }];
 }
 
 
 #pragma mark -SET/GET
-- (void)setLocalImage:(UIImage *)localImage {
-    _localImage = localImage;
+- (void)setUrl:(NSURL *)url {
+    _url = url;
+    self.downState = JKDownLoadStateUnLoad;
 }
 
 

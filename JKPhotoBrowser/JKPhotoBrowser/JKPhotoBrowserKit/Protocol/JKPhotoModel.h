@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <YYImage.h>
+#import <YYImage/YYImage.h>
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^JKWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 typedef NS_ENUM(NSInteger,JKDownLoadState){
-   JKDownLoadStateSuccessful,//下载成功
-   JKDownLoadStateFail,//下载失败
+   JKDownLoadStateFail = 1,//下载失败
    JKDownLoadStateUnderway,//下载中
+   JKDownLoadStateUnLoad,//未下载
 };
 @protocol JKPhotoModel <NSObject>
 /**
  本地图片
   
  */
-@property (nonatomic,strong,nullable)UIImage *localImage;
+@property (nonatomic,strong,nullable)YYImage *localImage;
 
 /**
  网络图片 url
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
  @param successful 成功的回调
  @param error 失败的回调
  */
-- (void)setUrlWithDownloadInAdvance:(NSURL *)url progress:(JKWebImageProgressBlock)progress successful:(os_block_t)successful fail:(void(^)(NSError *))error;
+- (void)setUrlWithDownloadInAdvance:(NSURL *)url progress:(JKWebImageProgressBlock)progress successful:(os_block_t)successful fail:(void(^)(NSError *error))error;
 
 
 
@@ -55,6 +55,13 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
  */
 @property (nonatomic,strong,nullable) YYImage *animatedImage;
 
+
+/**
+ 来源图片视图
+ （用于做 YBImageBrowserAnimationMove 类型的动效）
+ */
+@property (nonatomic, strong, nullable) UIImageView *sourceImageView;
+
 /**
  最大缩放值 默认4
  （若 JKImageBrowser 的 autoCountMaximumZoomScale 属性为 NO 有效）
@@ -69,7 +76,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 /**
  下载错误视图
  */
-@property (nonatomic,strong,nullable) UIImage *errorImage;
+@property (nonatomic,strong,nullable) YYImage *errorImage;
 
 @end
 NS_ASSUME_NONNULL_END

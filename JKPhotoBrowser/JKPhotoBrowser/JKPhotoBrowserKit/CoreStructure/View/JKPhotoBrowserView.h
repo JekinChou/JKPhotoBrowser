@@ -21,6 +21,8 @@
  */
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView didScrollToIndex:(NSInteger)index;
 
+- (void)photoBrowserView:(JKPhotoBrowserView *)browserView longPressBegin:(UILongPressGestureRecognizer *)gesture index:(NSInteger)index;
+- (void)photoBrowserApplyForHiddenWithView:(JKPhotoBrowserView *)view;
 
 @end
 
@@ -51,6 +53,6 @@
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType horizontalScreenImageViewFillType;
 
-
+- (void)scrollToPageWithIndex:(NSInteger)index;
 
 @end
