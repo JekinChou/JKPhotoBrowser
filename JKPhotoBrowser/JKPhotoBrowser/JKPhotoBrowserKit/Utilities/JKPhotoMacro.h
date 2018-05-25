@@ -8,7 +8,7 @@
 
 #ifndef JKPhotoMacro_h
 #define JKPhotoMacro_h
-
+#define JK_READIMAGE_FROMFILE(fileName, fileType) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:fileType]]
 #define JK_MAINTHREAD_SYNC(block)\
 if ([NSThread isMainThread]) {\
 block();\

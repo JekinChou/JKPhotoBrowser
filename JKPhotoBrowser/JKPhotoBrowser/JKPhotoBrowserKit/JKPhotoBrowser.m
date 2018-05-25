@@ -23,7 +23,6 @@ JKPhotoBrowserViewDataSource,
 JKPhotoBrowserViewDelegate> {
     UIInterfaceOrientationMask _supportAutorotateTypes;
     UIWindow *_window;
-    BOOL _isDealViewDidAppear;
     JKPhtotBrowserAnimatedTransitioning *_animatedTransitioningManager;
 }
 @property (nonatomic,strong) JKPhotoTransitionManger *transitionManger;
@@ -56,13 +55,12 @@ JKPhotoBrowserViewDelegate> {
         [self configStatusBarHide:YES];
     }
     _statusBarIsHideBefore = [UIApplication sharedApplication].statusBarHidden;
-    if (!_isDealViewDidAppear) {
-        [self setConfigInfoToChildModules];
-        [self.view addSubview:self.browserView];
-        self.browserView.alpha = 0;
-        [self.browserView scrollToPageWithIndex:self.currentIndex];
-        _isDealViewDidAppear = YES;
-    }
+    [self setConfigInfoToChildModules];
+    [self.view addSubview:self.browserView];
+    [self.view addSubview:self.pageView];
+    self.browserView.alpha = 0;
+    self.pageView.currentIndex = self.currentIndex+1;
+    [self.browserView scrollToPageWithIndex:self.currentIndex];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -177,9 +175,10 @@ JKPhotoBrowserViewDelegate> {
 
 #pragma mark - JKPhotoBrowserViewDataSource
 - (NSInteger)numberOfTotalImageInPhotoBrowser:(JKPhotoBrowserView *)browserView {
-    NSInteger index = [self.dataSource numberInPhotoBrowser:self];
-    if(index == 0)index = self.dataArray.count;
-    return index;
+    NSInteger number = [self.dataSource numberInPhotoBrowser:self];
+    if(number == 0)number = self.dataArray.count;
+    self.pageView.total = number;
+    return number;
 }
 
 /**
@@ -204,6 +203,7 @@ JKPhotoBrowserViewDelegate> {
     if ([self.delegate respondsToSelector:@selector(photoBrowser:didScrollToIndex:)]) {
         [self.delegate photoBrowser:self didScrollToIndex:index];
     }
+    self.pageView.currentIndex = index+1;
 }
 
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView longPressBegin:(UILongPressGestureRecognizer *)gesture index:(NSInteger)index {
@@ -223,6 +223,8 @@ JKPhotoBrowserViewDelegate> {
 - (UIView<JKPhotoIndexPage> *)pageView {
     if (!_pageView) {
         _pageView = [JKPhtotPageView new];
+        _pageView.frame = [UIScreen mainScreen].bounds;
+        _pageView.userInteractionEnabled = NO;
     }
     return _pageView;
 }

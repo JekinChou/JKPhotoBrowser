@@ -49,7 +49,6 @@
 @property (nonatomic,weak) id<JKPhotoBrowserViewDelegate>jk_delegate;
 @property (nonatomic,weak) id<JKPhotoBrowserViewDataSource> jk_dataSource;
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
-
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType horizontalScreenImageViewFillType;
 

@@ -32,7 +32,9 @@
 
 //本地图片处理
 - (UIImage *)setImageWithFileName:(NSString *)fileName fileType:(NSString *)type {
-    return nil;
+    UIImage *image = JK_READIMAGE_FROMFILE(fileName, type);
+    self.localImage = image;
+    return image;
 }
 //网络图片下载处理
 - (void)setUrlWithDownloadInAdvance:(NSURL *)url progress:(JKWebImageProgressBlock)progress successful:(os_block_t)successful fail:(void(^)(NSError *))errorCallback {
