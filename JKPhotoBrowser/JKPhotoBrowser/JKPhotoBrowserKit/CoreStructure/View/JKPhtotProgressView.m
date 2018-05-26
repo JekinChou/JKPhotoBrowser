@@ -19,7 +19,10 @@
 
 @implementation JKPhtotProgressView
 @synthesize progress = _progress;
-
+- (id)copyWithZone:(NSZone *)zone {
+    JKPhtotProgressView *progressView = [[self.class allocWithZone:zone]init];
+    return progressView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
    
@@ -33,27 +36,10 @@
 }
 - (void)setupUI {
     self.backgroundColor = [UIColor clearColor];
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    circleLayer.strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
-    circleLayer.fillColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2].CGColor;
-    circleLayer.path = [self circlePath].CGPath;
-    [self.layer addSublayer:circleLayer];
-    self.circleLayer = circleLayer;
+    [self.layer addSublayer:self.circleLayer];
+    [self.layer addSublayer:self.fanshapedLayer];
+    [self.layer addSublayer:self.errorLayer];
     
-    CAShapeLayer *fanshapedLayer = [CAShapeLayer layer];
-    fanshapedLayer.fillColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
-    [self.layer addSublayer:fanshapedLayer];
-    self.fanshapedLayer = fanshapedLayer;
-    
-    CAShapeLayer *errorLayer = [CAShapeLayer layer];
-    errorLayer.frame = self.bounds;
-    // 旋转 45 度
-    errorLayer.affineTransform = CGAffineTransformMakeRotation(M_PI_4);
-    errorLayer.fillColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
-    errorLayer.path = [self errorPath].CGPath;
-    errorLayer.hidden = YES;
-    [self.layer addSublayer:errorLayer];
-    self.errorLayer = errorLayer;
 }
 
 #pragma mark - PRIVATEMETHOD
@@ -88,6 +74,36 @@
     return path;
 }
 #pragma mark - PROTOCOL
+- (CAShapeLayer *)circleLayer {
+    if (!_circleLayer) {
+        CAShapeLayer *circleLayer = [CAShapeLayer layer];
+        circleLayer.strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
+        circleLayer.fillColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2].CGColor;
+        circleLayer.path = [self circlePath].CGPath;
+        _circleLayer = circleLayer;
+    }
+    return _circleLayer;
+}
+- (CAShapeLayer *)fanshapedLayer {
+    if (!_fanshapedLayer) {
+        _fanshapedLayer =[CAShapeLayer layer];
+        _fanshapedLayer.fillColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
+    }
+    return _fanshapedLayer;
+}
+- (CAShapeLayer *)errorLayer {
+    if (!_errorLayer) {
+        CAShapeLayer *errorLayer = [CAShapeLayer layer];
+        errorLayer.frame = self.bounds;
+        // 旋转 45 度
+        errorLayer.affineTransform = CGAffineTransformMakeRotation(M_PI_4);
+        errorLayer.fillColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.8].CGColor;
+        errorLayer.path = [self errorPath].CGPath;
+        errorLayer.hidden = YES;
+        _errorLayer = errorLayer;
+    }
+    return _errorLayer;
+}
 - (void)showSuccessful {
     self.hidden = YES;
 }

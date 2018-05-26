@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "JKPhotoBrowserStateProtocol.h"
-@interface JKPhtotProgressView : UIView<JKPhotoBrowserStateProtocol>
+@interface JKPhtotProgressView : UIView<JKPhotoBrowserStateProtocol,NSCopying>
 
 @end

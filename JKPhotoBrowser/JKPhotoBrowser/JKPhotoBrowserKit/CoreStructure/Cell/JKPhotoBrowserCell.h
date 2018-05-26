@@ -25,7 +25,7 @@ JKPhotoTransitionProtocol>
 /**
  状态view
  */
-@property (nonatomic,strong,null_resettable) UIView<JKPhotoBrowserStateProtocol> *stateView;
+@property (nonatomic,assign,class) UIView<JKPhotoBrowserStateProtocol> *progressView;
 @property (nonatomic,weak) id<JKPhotoBrowserCellDelegate> delegate;
 @property (nonatomic,strong,readonly) YYAnimatedImageView *imageView;
 @property (nonatomic, strong, readonly) YYAnimatedImageView *animateImageView;

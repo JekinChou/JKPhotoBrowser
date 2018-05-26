@@ -9,6 +9,9 @@
 #import "JKPhotoBrowserCell.h"
 #import <YYImage/YYAnimatedImageView.h>
 #import "JKPhtotProgressView.h"
+
+static UIView<JKPhotoBrowserStateProtocol> *_progressView;
+
 @interface JKPhotoBrowserCell ()<UIScrollViewDelegate> {
     //动画相关
     CGFloat _startScaleWidthInAnimationView; //开始拖动时比例
@@ -26,11 +29,11 @@
 @property (nonatomic,strong) YYAnimatedImageView *imageView;
 @property (nonatomic,strong) YYAnimatedImageView *animateImageView;//做移动动画的view
 @property (nonatomic,strong) UIScrollView *scrollView;
-
+@property (nonatomic,copy) UIView<JKPhotoBrowserStateProtocol> *stateView;
 @end
 
 @implementation JKPhotoBrowserCell
-@synthesize cancelDragImageViewAnimation = _cancelDragImageViewAnimation,outScaleOfDragImageViewAnimation = _outScaleOfDragImageViewAnimation,autoCountMaximumZoomScale = _autoCountMaximumZoomScale,stateView = _stateView;
+@synthesize cancelDragImageViewAnimation = _cancelDragImageViewAnimation,outScaleOfDragImageViewAnimation = _outScaleOfDragImageViewAnimation,autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
 
 #pragma mark  - initialize
 - (void)dealloc {
@@ -49,6 +52,7 @@
     [self.scrollView setZoomScale:1.0 animated:NO];
     self.imageView.image = nil;
     self.stateView.hidden = YES;
+    self.stateView.progress = 0.0;
 }
 #pragma mark - PRIVATEMETHOD
 - (void)setUpUI {
@@ -348,7 +352,6 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
     [self dragAnimation_recordInfoWithScrollView:scrollView];
 }
 
@@ -366,13 +369,10 @@
     _model = model;
     [self loadImageWithModel:model];
 }
-- (void)setStateView:(UIView<JKPhotoBrowserStateProtocol> *)stateView {
-    if (!_stateView)return;
-    
-}
 - (UIView<JKPhotoBrowserStateProtocol> *)stateView {
     if (!_stateView) {
-        _stateView = [[JKPhtotProgressView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        if (!_progressView)_progressView = [[JKPhtotProgressView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        _stateView = _progressView.copy;
         _stateView.center = self.contentView.center;
     }
     return _stateView;
@@ -411,6 +411,12 @@
     }
     return _scrollView;
 }
-
++(UIView<JKPhotoBrowserStateProtocol> *)progressView {
+    return _progressView;
+}
++(void)setProgressView:(UIView<JKPhotoBrowserStateProtocol> *)progressView {
+    if (!progressView)return;
+    _progressView = progressView;
+}
 
 @end

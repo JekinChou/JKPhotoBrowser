@@ -6,6 +6,7 @@ target 'JKPhotoBrowser' do
   # use_frameworks!
 	pod 'YYImage', '~> 1.0.4'
     pod 'YYWebImage', '~> 1.0.5'
+    pod 'SDWebImage', '~> 4.3.3'
   # Pods for JKPhotoBrowser
 
 end

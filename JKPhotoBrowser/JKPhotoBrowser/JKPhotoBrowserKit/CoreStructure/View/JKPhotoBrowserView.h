@@ -66,9 +66,10 @@
 @property (nonatomic,weak) id<JKPhotoBrowserViewDelegate>jk_delegate;
 @property (nonatomic,weak) id<JKPhotoBrowserViewDataSource> jk_dataSource;
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
-@property (nonatomic,copy,readwrite) UIView<JKPhotoBrowserStateProtocol> *stateView;
+
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
 
 - (void)scrollToPageWithIndex:(NSInteger)index;
-
+//构建状态view
+- (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView;
 @end

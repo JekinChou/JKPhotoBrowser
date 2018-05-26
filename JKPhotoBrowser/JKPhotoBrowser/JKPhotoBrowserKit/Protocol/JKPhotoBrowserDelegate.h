@@ -10,7 +10,7 @@
 @class JKPhotoBrowser;
 //图片浏览器的一般事件回调
 @protocol JKPhotoBrowserDelegate <NSObject>
-
+@optional
 /**
  翻页
 

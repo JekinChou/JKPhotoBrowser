@@ -22,7 +22,7 @@ UIScrollViewDelegate>
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor blackColor];
         [self registerClass:JKPhotoBrowserCell.class forCellWithReuseIdentifier:JKPhotoBrowserCellIdentifier];
         self.pagingEnabled = YES;
         self.showsHorizontalScrollIndicator = NO;
@@ -90,7 +90,6 @@ UIScrollViewDelegate>
     cell.outScaleOfDragImageViewAnimation = self.outScaleOfDragImageViewAnimation;
     cell.autoCountMaximumZoomScale = self.autoCountMaximumZoomScale;
     cell.verticalScreenImageViewFillType = self.verticalScreenImageViewFillType;
-   
     if ([self.jk_dataSource respondsToSelector:@selector(photoBrowserView:itemForCellAtIndex:)]) {
         cell.model = [self.jk_dataSource photoBrowserView:self itemForCellAtIndex:indexPath.row];
     }else {
@@ -101,6 +100,8 @@ UIScrollViewDelegate>
 }
 
 #pragma mark - SET/GET
-
+- (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
+    JKPhotoBrowserCell.progressView = stateView;
+}
 
 @end

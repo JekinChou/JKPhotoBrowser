@@ -255,7 +255,7 @@ JKPhotoBrowserViewDelegate> {
     return _dataArray;
 }
 - (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
-    self.browserView.stateView = stateView;
+    [self.browserView setStateView:stateView];
 }
 
 

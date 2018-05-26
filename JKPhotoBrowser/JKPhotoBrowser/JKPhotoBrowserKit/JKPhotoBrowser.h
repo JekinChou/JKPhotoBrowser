@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  状态view 
  */
-@property (nonatomic,strong,readwrite) UIView<JKPhotoBrowserStateProtocol> *stateView;
+@property (nonatomic,weak,readwrite) UIView<JKPhotoBrowserStateProtocol,NSCopying> *stateView;
 
 /**
  分页距离

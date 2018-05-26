@@ -23,8 +23,8 @@ dispatch_async(dispatch_get_main_queue(), block);\
 }
 
 #define JK_STATUSBAR_ORIENTATION [UIApplication sharedApplication].statusBarOrientation
-#define JK_SCREEN_HEIGHT (((JK_STATUSBAR_ORIENTATION == UIInterfaceOrientationPortrait) || (JK_STATUSBAR_ORIENTATION == UIInterfaceOrientationPortraitUpsideDown)) ? [UIScreen mainScreen].bounds.size.height : [UIScreen mainScreen].bounds.size.width)
-#define JK_SCREEN_WIDTH (((JK_STATUSBAR_ORIENTATION == UIInterfaceOrientationPortrait) || (JK_STATUSBAR_ORIENTATION == UIInterfaceOrientationPortraitUpsideDown)) ? [UIScreen mainScreen].bounds.size.width : [UIScreen mainScreen].bounds.size.height)
+#define JK_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define JK_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 //屏幕旋转后经过条件判断的通知
 static NSString *const JKPhotoBrowserOrientationDidChangeNotification = @"JKPhotoBrowserOrientationDidChangeNotification";
 static NSString *const JKPhtotBrowserViewWillShowWithTimeIntervalNotification = @"JKPhtotBrowserViewWillShowWithTimeIntervalNotification";
