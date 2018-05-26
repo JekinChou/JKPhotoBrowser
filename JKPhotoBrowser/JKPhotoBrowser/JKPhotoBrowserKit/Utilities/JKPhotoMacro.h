@@ -31,6 +31,8 @@ static NSString *const JKPhtotBrowserViewWillShowWithTimeIntervalNotification = 
 static NSString *const JKPhtotBrowserViewDidShowWithTimeIntervalNotification = @"JKPhtotBrowserViewDidShowWithTimeIntervalNotification";
 static NSString *const JKPhtotBrowserChangeAlphaNotification = @"JKPhtotBrowserChangeAlphaNotification";
 static NSString *const JKPhotoBrowserShouldHideNotification = @"JKPhotoBrowserShouldHideNotification";
+//图片浏览器消失回调
+static NSString *const JKPhtotBrowserWillDismissNotification = @"JKPhtotBrowserWillDismissNotification";
 typedef NS_ENUM(NSUInteger, JKImageBrowserImageViewFillType) {
     JKImageBrowserImageViewFillTypeFullWidth,   //宽度抵满屏幕宽度，高度不定
     JKImageBrowserImageViewFillTypeCompletely   //保证图片完整显示情况下最大限度填充

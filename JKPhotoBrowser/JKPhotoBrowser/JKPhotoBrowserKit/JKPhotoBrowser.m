@@ -24,6 +24,7 @@ JKPhotoBrowserViewDelegate> {
     UIInterfaceOrientationMask _supportAutorotateTypes;
     UIWindow *_window;
     JKPhtotBrowserAnimatedTransitioning *_animatedTransitioningManager;
+    NSMutableDictionary <NSString *,id<JKPhotoModel>>*_datasM;
 }
 @property (nonatomic,strong) JKPhotoTransitionManger *transitionManger;
 @property (nonatomic,strong) JKPhotoBrowserView *browserView;
@@ -31,6 +32,8 @@ JKPhotoBrowserViewDelegate> {
 @end
 
 @implementation JKPhotoBrowser
+@synthesize dataArray = _dataArray;
+
 #pragma mark - init
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -62,10 +65,7 @@ JKPhotoBrowserViewDelegate> {
     self.pageView.currentIndex = self.currentIndex+1;
     [self.browserView scrollToPageWithIndex:self.currentIndex];
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.browserView.alpha = 1;
@@ -80,6 +80,7 @@ JKPhotoBrowserViewDelegate> {
 #pragma mark - PRIVATEMETHOD
 - (void)setConfig {
     _space = 18;
+    _customGestureDeal = YES;
     _autoCountMaximumZoomScale = YES;
     _animatedTransitioningManager = [JKPhtotBrowserAnimatedTransitioning new];
     _transitionDuration = 0.35;
@@ -103,6 +104,8 @@ JKPhotoBrowserViewDelegate> {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(phtotBrowserWillShowWithNotification:) name:JKPhtotBrowserViewWillShowWithTimeIntervalNotification object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(phtotBrowserShouldHideWithNotification:) name:JKPhotoBrowserShouldHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismiss) name:JKPhtotBrowserWillDismissNotification object:nil];
 }
 // !!!:notification
 - (void)phtotBrowserChangeAlphaWithNotification:(NSNotification *)notification {
@@ -140,21 +143,15 @@ JKPhotoBrowserViewDelegate> {
 }
 #pragma mark - PUBLICMETHOD
 - (void)show {
-    
+    [self showFromController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 - (void)showFromController:(UIViewController *)controller {
     if (self.dataArray) {
-        if (!self.dataArray.count) {
-            
-            return;
-        }
+        if (!self.dataArray.count)return;
     } else if (_dataSource && [_dataSource respondsToSelector:@selector(numberInPhotoBrowser:)]) {
-        if (![_dataSource numberInPhotoBrowser:self]) {
-        
-            return;
-        }
-    } else {
-        return;
+        if (![_dataSource numberInPhotoBrowser:self]) return;
+    } else{
+      return;
     }
     [controller presentViewController:self animated:YES completion:nil];
 }
@@ -178,6 +175,7 @@ JKPhotoBrowserViewDelegate> {
     NSInteger number = [self.dataSource numberInPhotoBrowser:self];
     if(number == 0)number = self.dataArray.count;
     self.pageView.total = number;
+    if (!_datasM)_datasM = [NSMutableDictionary  dictionaryWithCapacity:number];
     return number;
 }
 
@@ -189,10 +187,16 @@ JKPhotoBrowserViewDelegate> {
  @return return value description
  */
 - (id<JKPhotoModel>)photoBrowserView:(JKPhotoBrowserView *)browserView itemForCellAtIndex:(NSInteger)index {
-    if ([self.dataSource respondsToSelector:@selector(photoBrowser:modelForCellAtIndex:)]) {
-        return [self.dataSource photoBrowser:self modelForCellAtIndex:index];
-    }else if (self.dataArray.count>0){
-        return self.dataArray[index];
+    //判断数组中是否有这个模型,如果有就返回
+    //没有就走数据源方法,将返回的模型保存在数组中
+    //最后返回Nil
+    NSString *key = [NSString stringWithFormat:@"%ld",(long)index];
+    if (_datasM&&[_datasM valueForKey:key]) {
+        return _datasM[key];
+    }else if ([self.dataSource respondsToSelector:@selector(photoBrowser:modelForCellAtIndex:)]){
+        id<JKPhotoModel>model = [self.dataSource photoBrowser:self modelForCellAtIndex:index];
+        [_datasM setObject:model forKey:key];
+        return model;
     }
     return nil;
 }
@@ -207,19 +211,56 @@ JKPhotoBrowserViewDelegate> {
 }
 
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView longPressBegin:(UILongPressGestureRecognizer *)gesture index:(NSInteger)index {
-    
+    if (!self.customGestureDeal) {
+        NSLog(@"长按了");
+        return;
+    }
+    if ([self.delegate respondsToSelector:@selector(photoBrowser:longPressWithIndex:)]) {
+        [self.delegate photoBrowser:self longPressWithIndex:index];
+    }
 }
-- (void)photoBrowserApplyForHiddenWithView:(JKPhotoBrowserView *)view {
-    [self dismiss];
+- (void)photoBrowserView:(JKPhotoBrowserView *)browserView singleTapWithGesture:(UITapGestureRecognizer *)tapGesture index:(NSInteger)index {
+    if (!self.customGestureDeal) {
+        [self dismiss];
+        return;
+    }
+    if ([self.delegate respondsToSelector:@selector(photoBrowser:clickWithIndex:)]) {
+        [self.delegate photoBrowser:self clickWithIndex:index];
+    }
 }
 
+
 #pragma mark - SET/GET
-- (UIView<JKPhotoBrowserStateProtocol> *)stateView {
-    if (!_stateView) {
-        _stateView = [JKPhtotProgressView new];
+- (void)setDataArray:(NSArray<JKPhotoModel> *)dataArray {
+    _dataArray = dataArray;
+    if (dataArray.count>0&&!_datasM) {
+        _datasM = [NSMutableDictionary  dictionaryWithCapacity:dataArray.count];
+        for (int i = 0; i<dataArray.count; i++) {
+            [_datasM setObject:dataArray[i] forKey:[NSString stringWithFormat:@"%d",i]];
+        }
     }
-    return _stateView;
 }
+- (NSArray<JKPhotoModel> *)dataArray {
+    if (!_dataArray) {
+        NSArray *allKeys = _datasM.allKeys;
+        [allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            NSComparisonResult resuest = [obj2 compare:obj1];
+            return resuest;
+        }];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:_datasM.count];
+        for (NSString *key in allKeys) {
+            [array addObject:_datasM[key]];
+        }
+        if (array.count == 0)array = nil;
+        _dataArray = array.copy;
+    }
+    return _dataArray;
+}
+- (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
+    self.browserView.stateView = stateView;
+}
+
+
 - (UIView<JKPhotoIndexPage> *)pageView {
     if (!_pageView) {
         _pageView = [JKPhtotPageView new];

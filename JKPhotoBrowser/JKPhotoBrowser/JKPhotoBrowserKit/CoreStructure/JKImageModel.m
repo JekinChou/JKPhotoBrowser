@@ -15,7 +15,7 @@
 
 @end
 @implementation JKImageModel
-@synthesize briefImage = _briefImage,gifName = _gifName,localImage = _localImage,url = _url,progress = _progress,animatedImage = _animatedImage,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState,sourceImageView = _sourceImageView;
+@synthesize briefImage = _briefImage,gifName = _gifName,localImage = _localImage,url = _url,progressCallBack = _progressCallBack,animatedImage = _animatedImage,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState,sourceImageView = _sourceImageView;
 #pragma mark - initialize
 - (instancetype)init {
     if (self = [super init]) {
@@ -42,10 +42,12 @@
     self.downState = JKDownLoadStateUnderway;
     __weak typeof(self)weakself = self;
     _currentOperation = [[YYWebImageManager sharedManager]requestImageWithURL:url options:YYWebImageOptionShowNetworkActivity  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        weakself.progress = receivedSize/expectedSize;
-        progress(receivedSize,expectedSize);
-    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         JK_MAINTHREAD_SYNC(^{
+            progress(receivedSize,expectedSize);
+            if (weakself.progressCallBack)weakself.progressCallBack(receivedSize*1.0/expectedSize);
+        });
+    } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        JK_MAINTHREAD_SYNC(^{            
             if (stage != YYWebImageStageFinished)return;
             if (error&&errorCallback&&!image) {
                 weakself.downState = JKDownLoadStateFail;

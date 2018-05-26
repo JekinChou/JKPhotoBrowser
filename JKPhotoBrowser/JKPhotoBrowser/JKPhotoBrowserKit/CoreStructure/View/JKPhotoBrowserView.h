@@ -10,9 +10,10 @@
 #import "JKPhotoModel.h"
 #import "JKPhotoTransitionManger.h"
 #import "JKPhotoTransitionProtocol.h"
+#import "JKPhtotProgressView.h"
 @class JKPhotoBrowserView;
 @protocol JKPhotoBrowserViewDelegate<NSObject>
-
+@optional
 /**
  滚动到当前index
 
@@ -21,12 +22,28 @@
  */
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView didScrollToIndex:(NSInteger)index;
 
+/**
+ 长按当前图片回调
+
+ @param browserView browserView description
+ @param gesture gesture description
+ @param index index description
+ */
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView longPressBegin:(UILongPressGestureRecognizer *)gesture index:(NSInteger)index;
-- (void)photoBrowserApplyForHiddenWithView:(JKPhotoBrowserView *)view;
+
+/**
+ 单点击回调
+
+ @param browserView browserView description
+ @param tapGesture tapGesture description
+ @param index index description
+ */
+- (void)photoBrowserView:(JKPhotoBrowserView *)browserView singleTapWithGesture:(UITapGestureRecognizer *)tapGesture index:(NSInteger)index;
 
 @end
 
 @protocol JKPhotoBrowserViewDataSource <NSObject>
+
 @required
 /**
  图片总数
@@ -49,6 +66,7 @@
 @property (nonatomic,weak) id<JKPhotoBrowserViewDelegate>jk_delegate;
 @property (nonatomic,weak) id<JKPhotoBrowserViewDataSource> jk_dataSource;
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
+@property (nonatomic,copy,readwrite) UIView<JKPhotoBrowserStateProtocol> *stateView;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType horizontalScreenImageViewFillType;
 

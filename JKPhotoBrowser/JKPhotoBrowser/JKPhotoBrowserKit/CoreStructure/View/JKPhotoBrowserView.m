@@ -8,6 +8,7 @@
 
 #import "JKPhotoBrowserView.h"
 #import "JKPhotoBrowserCell.h"
+
 static NSString *const JKPhotoBrowserCellIdentifier = @"JKPhotoBrowserCellIdentifier";
 
 @interface JKPhotoBrowserView ()<UICollectionViewDataSource,
@@ -50,9 +51,10 @@ UIScrollViewDelegate>
         [self.jk_delegate photoBrowserView:self longPressBegin:gesture index:indexPath.row];
     }
 }
-- (void)photoBrowserApplyForHiddenWithCell:(JKPhotoBrowserCell *)cell {
-    if ([self.jk_delegate respondsToSelector:@selector(photoBrowserApplyForHiddenWithView:)]) {
-        [self.jk_delegate photoBrowserApplyForHiddenWithView:self];
+- (void)photoBrowserCell:(JKPhotoBrowserCell *)cell singleTapWithGesture:(UITapGestureRecognizer *)tapGesture {
+   NSIndexPath *indexPath = [self indexPathForCell:cell];
+    if ([self.jk_delegate respondsToSelector:@selector(photoBrowserView:singleTapWithGesture:index:)]) {
+        [self.jk_delegate photoBrowserView:self singleTapWithGesture:tapGesture index:indexPath.row  ];
     }
 }
 
@@ -69,12 +71,6 @@ UIScrollViewDelegate>
     }
 }
 
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    NSArray<JKPhotoBrowserCell *>* array = (NSArray<JKPhotoBrowserCell *>*)[self visibleCells];
-//    for (YBImageBrowserCell *cell in array) {
-//        [cell reDownloadImageUrl];
-//    }
-}
 
 
 #pragma mark -  UICollectionViewDataSource
@@ -88,14 +84,14 @@ UIScrollViewDelegate>
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     JKPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JKPhotoBrowserCellIdentifier forIndexPath:indexPath];
-    cell.delegate = self;
+    cell.delegate = self;    
     cell.cancelDragImageViewAnimation = self.cancelDragImageViewAnimation;
     cell.outScaleOfDragImageViewAnimation = self.outScaleOfDragImageViewAnimation;
     cell.autoCountMaximumZoomScale = self.autoCountMaximumZoomScale;
     cell.verticalScreenImageViewFillType = self.verticalScreenImageViewFillType;
     cell.horizontalScreenImageViewFillType = self.horizontalScreenImageViewFillType;
+    
     if ([self.jk_dataSource respondsToSelector:@selector(photoBrowserView:itemForCellAtIndex:)]) {
         cell.model = [self.jk_dataSource photoBrowserView:self itemForCellAtIndex:indexPath.row];
     }else {
@@ -105,7 +101,7 @@ UIScrollViewDelegate>
     return cell;
 }
 
-
+#pragma mark - SET/GET
 
 
 @end

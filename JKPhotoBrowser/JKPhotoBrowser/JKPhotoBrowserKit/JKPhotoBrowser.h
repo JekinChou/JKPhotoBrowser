@@ -42,12 +42,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  状态view 
  */
-@property (nonatomic,strong,null_resettable) UIView<JKPhotoBrowserStateProtocol> *stateView;
+@property (nonatomic,strong,readwrite) UIView<JKPhotoBrowserStateProtocol> *stateView;
 
 /**
  分页距离
  */
 @property (nonatomic,assign) CGFloat space;
+
+/**
+ 是否自行处理手势结果(长按和点按),如果为YES,需实现代理方法 -photoBrowser:(JKPhotoBrowser *)browser longPressWithIndex:(NSInteger)index 以及 - (void)photoBrowser:(JKPhotoBrowser *)browser clickWithIndex:(NSInteger)index 如果为NO,上述两个代理方法将不发生回调,内部处理,默认为YES
+ */
+@property (nonatomic,assign) BOOL customGestureDeal;
 #pragma mark - 转场相关管理类
 @property (nonatomic,strong,readonly) JKPhotoTransitionManger *transitionManger;
 

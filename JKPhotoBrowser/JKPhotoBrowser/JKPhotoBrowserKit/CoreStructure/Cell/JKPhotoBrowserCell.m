@@ -30,7 +30,7 @@
 @end
 
 @implementation JKPhotoBrowserCell
-@synthesize cancelDragImageViewAnimation = _cancelDragImageViewAnimation,outScaleOfDragImageViewAnimation = _outScaleOfDragImageViewAnimation,autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
+@synthesize cancelDragImageViewAnimation = _cancelDragImageViewAnimation,outScaleOfDragImageViewAnimation = _outScaleOfDragImageViewAnimation,autoCountMaximumZoomScale = _autoCountMaximumZoomScale,stateView = _stateView;
 
 #pragma mark  - initialize
 - (void)dealloc {
@@ -41,7 +41,6 @@
         _autoCountMaximumZoomScale = YES;
         [self setUpUI];
         [self addGesture];
-        [self registerNotification];
     }
     return self;
 }
@@ -55,6 +54,7 @@
 - (void)setUpUI {
     [self.contentView addSubview:self.scrollView];
     [self.scrollView addSubview:self.imageView];
+    [self.contentView addSubview:self.stateView];
 }
 - (void)addGesture {
     UITapGestureRecognizer *tapSingle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondsToTapSingle:)];
@@ -69,8 +69,8 @@
 }
 // !!!:gesturenEvent
 -(void)respondsToTapSingle:(UITapGestureRecognizer *)tap {
-    if (_delegate && [_delegate respondsToSelector:@selector(photoBrowserApplyForHiddenWithCell:)]) {
-        [_delegate photoBrowserApplyForHiddenWithCell:self];
+    if (_delegate && [_delegate respondsToSelector:@selector(photoBrowserCell:singleTapWithGesture:)]) {
+        [_delegate photoBrowserCell:self singleTapWithGesture:tap];
     }
 }
 
@@ -95,14 +95,6 @@
             [_delegate photoBrowserCell:self longPressBegin:longPress];
         }
     }
-}
-
-// !!!:notification
-- (void)registerNotification {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(photoCustomDeviceDidChangeOrientation:) name:JKPhotoBrowserOrientationDidChangeNotification object:nil];
-}
-- (void)photoCustomDeviceDidChangeOrientation:(NSNotification *)notification {
-    
 }
 
 - (void)dragAnimation_respondsToScrollViewPanGesture {
@@ -176,32 +168,35 @@
                 [self countLayoutWithImage:model.errorImage completed:nil];
             }
                 break;
-            case JKDownLoadStateUnderway:{
+            case JKDownLoadStateUnderway:{//正在下载
+                self.stateView.hidden = NO;
                 //显示加载中并且进度变化
-                
-                
-                
+                model.progressCallBack = ^(CGFloat progress) {
+                    if (weakself.model != weakModel)return ;
+                    weakself.stateView.progress = progress;
+                };
             }
                 break;
-            case JKDownLoadStateUnLoad:{
+            case JKDownLoadStateUnLoad:{//未下载
                 self.stateView.hidden = NO;
+                model.progressCallBack = ^(CGFloat progress) {};
                 //去下载
                 [model setUrlWithDownloadInAdvance:model.url progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    if (weakself.model != weakModel)return ;
                     weakself.stateView.progress = receivedSize*1.0/expectedSize;
                 } successful:^{
+                    if (weakself.model != weakModel)return ;
                     [weakself.stateView showSuccessful];
                     [weakself loadImageWithModel: weakModel];
-                    NSLog(@"下载成功");
                 } fail:^(NSError * _Nonnull error) {
-                    NSLog(@"下载失败");
+                    if (weakself.model != weakModel)return ;
                     [weakself.stateView showFail];
+                    [weakself countLayoutWithImage:weakModel.errorImage completed:nil];
                 }];
             }
             default:
                 break;
         }
-        
-        
     }
 }
 
@@ -303,10 +298,8 @@
         scrollView.contentOffset = CGPointZero;
     }
     if (_totalOffsetYOfAnimateImageView > maxHeight * _outScaleOfDragImageViewAnimation) {
-        
-        //移除图片浏览器
-        [_delegate photoBrowserApplyForHiddenWithCell:self];
-        
+        //通知 用来移除图片浏览器
+        [[NSNotificationCenter defaultCenter]postNotificationName:JKPhtotBrowserWillDismissNotification object:nil];
     } else {
         //复位
         if (_isCancelAnimate) return;
@@ -375,11 +368,14 @@
     _model = model;
     [self loadImageWithModel:model];
 }
+- (void)setStateView:(UIView<JKPhotoBrowserStateProtocol> *)stateView {
+    if (!_stateView)return;
+    
+}
 - (UIView<JKPhotoBrowserStateProtocol> *)stateView {
     if (!_stateView) {
         _stateView = [[JKPhtotProgressView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
         _stateView.center = self.contentView.center;
-        [self.contentView addSubview:_stateView];
     }
     return _stateView;
 }

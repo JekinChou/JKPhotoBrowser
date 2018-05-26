@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^JKWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 typedef NS_ENUM(NSInteger,JKDownLoadState){
-   JKDownLoadStateFail = 1,//下载失败
+    JKDownLoadStateUnLoad = 0,//未下载
+   JKDownLoadStateFail,//下载失败
    JKDownLoadStateUnderway,//下载中
-   JKDownLoadStateUnLoad,//未下载
+   
 };
 @protocol JKPhotoModel <NSObject>
 /**
@@ -27,8 +28,12 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
  （setUrlWithDownloadInAdvance: 设置 url 的时候异步预下载）
  */
 @property(nonatomic,strong,nullable)NSURL *url;
-//下载进度,可用kvo监听
-@property (nonatomic,assign) CGFloat progress;
+
+/**
+ 进度回调
+ */
+@property (nonatomic,copy) void(^progressCallBack)(CGFloat progress);
+
 //下载状态
 @property (nonatomic,assign) JKDownLoadState downState;
 /**

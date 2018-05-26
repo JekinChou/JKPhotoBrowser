@@ -15,7 +15,8 @@
 @protocol JKPhotoBrowserCellDelegate <NSObject>
 //长按触发
 - (void)photoBrowserCell:(JKPhotoBrowserCell *)cell longPressBegin:(UILongPressGestureRecognizer *)gesture;
-- (void)photoBrowserApplyForHiddenWithCell:(JKPhotoBrowserCell *)cell;
+//单点手势触发
+- (void)photoBrowserCell:(JKPhotoBrowserCell *)cell singleTapWithGesture:(UITapGestureRecognizer *)tapGesture;
 @end
 
 @interface JKPhotoBrowserCell : UICollectionViewCell<
