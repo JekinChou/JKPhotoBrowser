@@ -55,11 +55,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL customGestureDeal;
 #pragma mark - 转场相关管理类
 @property (nonatomic,strong,readonly) JKPhotoTransitionManger *transitionManger;
+/**
+ 入场动画类型
+ */
+@property (nonatomic, assign) JKImageBrowserAnimation inAnimation;
 
+/**
+ 出场动画类型
+ */
+@property (nonatomic, assign) JKImageBrowserAnimation outAnimation;
 /**
  转场动画持续时间
  */
 @property (nonatomic, assign) NSTimeInterval transitionDuration;
+
+
+
+
 
 /**
  取消拖拽图片的动画效果
@@ -71,15 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) CGFloat outScaleOfDragImageViewAnimation;
 
-/**
- 入场动画类型
- */
-@property (nonatomic, assign) JKImageBrowserAnimation inAnimation;
 
-/**
- 出场动画类型
- */
-@property (nonatomic, assign) JKImageBrowserAnimation outAnimation;
 
 #pragma mark - 缩放
 
@@ -91,15 +95,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL autoCountMaximumZoomScale;
 
 /**
- 纵屏时候图片填充类型
+ 图片填充类型
  */
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
-
-/**
- 横屏时候图片填充类型
- */
-@property (nonatomic, assign) JKImageBrowserImageViewFillType horizontalScreenImageViewFillType;
-
 
 #pragma mark - 其他
 /**

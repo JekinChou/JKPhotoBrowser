@@ -203,7 +203,7 @@
 
 #pragma mark - UI处理代码
 - (void)countLayoutWithImage:(YYImage *)image completed:(void(^)(CGRect imageFrame))completed {
-    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image screenOrientation:JKImageBrowserScreenOrientationVertical verticalFillType:self.verticalScreenImageViewFillType horizontalFillType:self.horizontalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image screenOrientation:JKImageBrowserScreenOrientationVertical verticalFillType:self.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         self.scrollView.contentSize = CGSizeMake(contentSize.width, contentSize.height);
         self.scrollView.minimumZoomScale = minimumZoomScale;
         if (self.autoCountMaximumZoomScale) {
@@ -216,11 +216,9 @@
         if (completed) completed(imageFrame);
     }];
 }
-- (void)reDownLoadImage {
-    
-}
+
 //计算图片大小核心代码
-+ (void)countWithContainerSize:(CGSize)containerSize image:(YYImage *)image screenOrientation:(JKImageBrowserScreenOrientation)screenOrientation verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType horizontalFillType:(JKImageBrowserImageViewFillType)horizontalFillType completed:(void(^)(CGRect _imageFrame, CGSize _contentSize, CGFloat _minimumZoomScale, CGFloat _maximumZoomScale))completed {
++ (void)countWithContainerSize:(CGSize)containerSize image:(YYImage *)image screenOrientation:(JKImageBrowserScreenOrientation)screenOrientation verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType  completed:(void(^)(CGRect _imageFrame, CGSize _contentSize, CGFloat _minimumZoomScale, CGFloat _maximumZoomScale))completed {
     
     CGSize imageSize = image.size;
     CGFloat containerWidth = containerSize.width;
@@ -237,7 +235,7 @@
     maximumZoomScale = maxScale > 1 ? maxScale : 1;
     
     //其他计算
-    JKImageBrowserImageViewFillType currentFillType = screenOrientation == JKImageBrowserScreenOrientationVertical ? verticalFillType : horizontalFillType;
+    JKImageBrowserImageViewFillType currentFillType = verticalFillType;
     
     switch (currentFillType) {
         case JKImageBrowserImageViewFillTypeFullWidth: {

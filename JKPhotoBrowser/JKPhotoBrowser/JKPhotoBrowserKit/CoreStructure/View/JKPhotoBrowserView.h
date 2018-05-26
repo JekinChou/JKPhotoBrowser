@@ -68,7 +68,6 @@
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
 @property (nonatomic,copy,readwrite) UIView<JKPhotoBrowserStateProtocol> *stateView;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
-@property (nonatomic, assign) JKImageBrowserImageViewFillType horizontalScreenImageViewFillType;
 
 - (void)scrollToPageWithIndex:(NSInteger)index;
 

@@ -88,12 +88,10 @@ JKPhotoBrowserViewDelegate> {
     _inAnimation = JKImageBrowserAnimationMove;
     _outAnimation = JKImageBrowserAnimationMove;
     _verticalScreenImageViewFillType = JKImageBrowserImageViewFillTypeFullWidth;
-    _horizontalScreenImageViewFillType = JKImageBrowserImageViewFillTypeFullWidth;
 }
 - (void)setConfigInfoToChildModules {
     self.browserView.autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
     self.browserView.verticalScreenImageViewFillType = self.verticalScreenImageViewFillType;
-    self.browserView.horizontalScreenImageViewFillType = self.horizontalScreenImageViewFillType;
     ((JKPhotoBrowserViewFlowLayout *)self.browserView.collectionViewLayout).space = self.space;
 }
 - (void)registerNotification {
@@ -282,7 +280,7 @@ JKPhotoBrowserViewDelegate> {
     if (!_transitionManger) {
         _transitionManger = [JKPhotoTransitionManger new];
         _transitionManger.transitionSet = self.browserView;
-  _transitionManger.outScaleOfDragImageViewAnimation(0.15).transitionDuration(1).cancelDragImageViewAnimation(NO);
+  _transitionManger.outScaleOfDragImageViewAnimation(0.15).transitionDuration(5).cancelDragImageViewAnimation(NO);
     }
     return _transitionManger;
 }
