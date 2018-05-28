@@ -16,7 +16,7 @@
 @end
 @implementation JKPhtotBrowserAnimatedTransitioning
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
-    return browser.transitionDuration;
+    return browser.transitionConfig.transitionDuration;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -30,7 +30,7 @@
     //入场动效
     if (toController.isBeingPresented) {
         [containerView addSubview:toView];
-        switch (browser.inAnimation) {
+        switch (browser.transitionConfig.inAnimation) {
             case JKImageBrowserAnimationMove: {
                 [self inAnimation_moveWithContext:transitionContext containerView:containerView toView:toView];
             }
@@ -47,7 +47,7 @@
     
     //出场动效
     if (fromController.isBeingDismissed) {
-        switch (browser.outAnimation) {
+        switch (browser.transitionConfig.outAnimation) {
             case JKImageBrowserAnimationMove: {
                 [self outAnimation_moveWithContext:transitionContext containerView:containerView fromView:fromView];
             }
@@ -67,7 +67,10 @@
 
 - (void)completeTransition:(id <UIViewControllerContextTransitioning>)transitionContext isIn:(BOOL)isIn {
     if (_animateImageView && _animateImageView.superview) [_animateImageView removeFromSuperview];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
     if (isIn && !JKPhotoBrowser.isControllerPreferredForStatusBar)  [[UIApplication sharedApplication] setStatusBarHidden:!JKPhotoBrowser.showStatusBar];
+#pragma clang diagnostic pop
     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
 }
 
@@ -96,7 +99,7 @@
         return;
     }
     __block CGRect toFrame = CGRectZero;
-    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image screenOrientation:JKImageBrowserScreenOrientationVertical verticalFillType:browser.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         toFrame = imageFrame;
     }];
     
@@ -153,7 +156,7 @@
         return;
     }
     __block CGRect toFrame = CGRectZero;
-    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image screenOrientation:JKImageBrowserScreenOrientationVertical verticalFillType:browser.verticalScreenImageViewFillType  completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.verticalScreenImageViewFillType  completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         toFrame = imageFrame;
     }];
     

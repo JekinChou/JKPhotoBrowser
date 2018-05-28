@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 
 /**
  来源图片视图
- （用于做 YBImageBrowserAnimationMove 类型的动效）
+ （用于做动效）
  */
 @property (nonatomic, strong, nullable) UIImageView *sourceImageView;
 

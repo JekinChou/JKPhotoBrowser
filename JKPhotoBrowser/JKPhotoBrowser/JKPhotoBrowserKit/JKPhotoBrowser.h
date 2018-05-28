@@ -12,7 +12,7 @@
 #import "JKPhotoBrowserDelegate.h"
 #import "JKPhotoIndexPage.h"
 #import "JKPhotoBrowserStateProtocol.h"
-#import "JKPhotoTransitionManger.h"
+#import "JKPhotoTransitionConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @interface JKPhotoBrowser : UIViewController
@@ -36,11 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 视图相关
 /**
- 索引view
+ 索引view 分页控件
  */
 @property (nonatomic,strong,null_resettable) UIView<JKPhotoIndexPage>*pageView;
 /**
- 状态view 
+ 状态view 展示进度以及下载成功失败与否
  */
 @property (nonatomic,weak,readwrite) UIView<JKPhotoBrowserStateProtocol,NSCopying> *stateView;
 
@@ -54,43 +54,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) BOOL customGestureDeal;
 #pragma mark - 转场相关管理类
-@property (nonatomic,strong,readonly) JKPhotoTransitionManger *transitionManger;
-/**
- 入场动画类型
- */
-@property (nonatomic, assign) JKImageBrowserAnimation inAnimation;
-
-/**
- 出场动画类型
- */
-@property (nonatomic, assign) JKImageBrowserAnimation outAnimation;
-/**
- 转场动画持续时间
- */
-@property (nonatomic, assign) NSTimeInterval transitionDuration;
-
-
-
-
-
-/**
- 取消拖拽图片的动画效果
- */
-@property (nonatomic, assign) BOOL cancelDragImageViewAnimation;
-
-/**
- 拖拽图片动效触发出场的比例（拖动距离/屏幕高度 默认0.15）
- */
-@property (nonatomic, assign) CGFloat outScaleOfDragImageViewAnimation;
-
-
+@property (nonatomic,strong,readonly) JKPhotoTransitionConfig *transitionConfig;
 
 #pragma mark - 缩放
 
 
 /**
  是否需要自动计算缩放
- （默认是自动的，若改为NO，可用 YBImageBrowserModel 的 maximumZoomScale 设置希望当前图片的最大缩放比例）
+ （默认是自动的，若改为NO，可用 JKImageBrowserModel 的 maximumZoomScale 设置希望当前图片的最大缩放比例）
  */
 @property (nonatomic, assign) BOOL autoCountMaximumZoomScale;
 

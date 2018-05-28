@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  YBImageBrowserDemo
+//  JKPhotoBrowser
 //
-//  Created by 杨少 on 2018/4/10.
-//  Copyright © 2018年 杨波. All rights reserved.
+//  Created by zhangjie on 2018/5/23.
+//  Copyright © 2018年 zhangjie. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -37,7 +37,7 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
 #pragma mark 方式一：使用数组配置数据源
 - (void)A_showWithTouchIndexPath:(NSIndexPath *)indexPath {
     
-    //配置数据源（图片浏览器每一张图片对应一个 YBImageBrowserModel 实例）
+    //配置数据源（图片浏览器每一张图片对应一个 JKImageModel 实例）
     NSMutableArray <JKImageModel *>*tempArr = (NSMutableArray <JKImageModel *>*)[NSMutableArray array];
     [self.dataArray0 enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         JKImageModel *model = [JKImageModel  new];
@@ -57,7 +57,7 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
 
 - (void)B_showWithTouchIndexPath:(NSIndexPath *)indexPath {
     
-    //创建图片浏览器（注意：更多功能请看 YBImageBrowser.h 文件或者 github readme）
+
     JKPhotoBrowser *browser = [JKPhotoBrowser new];
     browser.dataSource = self;
     browser.delegate = self;
@@ -120,7 +120,6 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
  */
 
 - (id<JKPhotoModel>)photoBrowser:(JKPhotoBrowser *)browser modelForCellAtIndex:(NSInteger)index {
-//    YBImageBrowserModel *model = [YBImageBrowserModel new];
     JKImageModel *model = [JKImageModel new];
     model.url = [NSURL URLWithString:self.dataArray1[index]];
     model.sourceImageView = [self getImageViewOfCellByIndexPath:[NSIndexPath indexPathForRow:index inSection:1]];

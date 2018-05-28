@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  YBImageBrowserDemo
+//  JKPhtotBrowser
 //
-//  Created by 杨少 on 2018/4/10.
-//  Copyright © 2018年 杨波. All rights reserved.
+//  Created by zhangjie on 2018/5/23.
+//  Copyright © 2018年 zhangjie. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

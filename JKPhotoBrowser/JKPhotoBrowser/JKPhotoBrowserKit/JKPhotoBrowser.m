@@ -26,7 +26,7 @@ JKPhotoBrowserViewDelegate> {
     JKPhtotBrowserAnimatedTransitioning *_animatedTransitioningManager;
     NSMutableDictionary <NSString *,id<JKPhotoModel>>*_datasM;
 }
-@property (nonatomic,strong) JKPhotoTransitionManger *transitionManger;
+@property (nonatomic,strong) JKPhotoTransitionConfig *transitionManger;
 @property (nonatomic,strong) JKPhotoBrowserView *browserView;
 @property (class, assign) BOOL isControllerPreferredForStatusBar;
 @end
@@ -83,10 +83,6 @@ JKPhotoBrowserViewDelegate> {
     _customGestureDeal = YES;
     _autoCountMaximumZoomScale = YES;
     _animatedTransitioningManager = [JKPhtotBrowserAnimatedTransitioning new];
-    _transitionDuration = 0.35;
-    _outScaleOfDragImageViewAnimation = 0.15;
-    _inAnimation = JKImageBrowserAnimationMove;
-    _outAnimation = JKImageBrowserAnimationMove;
     _verticalScreenImageViewFillType = JKImageBrowserImageViewFillTypeFullWidth;
 }
 - (void)setConfigInfoToChildModules {
@@ -239,20 +235,19 @@ JKPhotoBrowserViewDelegate> {
     }
 }
 - (NSArray<JKPhotoModel> *)dataArray {
-    if (!_dataArray) {
-        NSArray *allKeys = _datasM.allKeys;
-        [allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-            NSComparisonResult resuest = [obj2 compare:obj1];
-            return resuest;
-        }];
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:_datasM.count];
-        for (NSString *key in allKeys) {
-            [array addObject:_datasM[key]];
-        }
-        if (array.count == 0)array = nil;
-        _dataArray = array.copy;
+    NSArray *allKeys = _datasM.allKeys;
+    if (allKeys.count == 0)return nil;
+    [allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSComparisonResult resuest = [obj2 compare:obj1];
+        return resuest;
+    }];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:_datasM.count];
+    for (NSString *key in allKeys) {
+        [array addObject:_datasM[key]];
     }
-    return _dataArray;
+    if (array.count == 0)array = nil;
+    
+    return array.copy;
 }
 - (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
     [self.browserView setStateView:stateView];
@@ -276,11 +271,13 @@ JKPhotoBrowserViewDelegate> {
     }
     return _browserView;
 }
-- (JKPhotoTransitionManger *)transitionManger {
+- (JKPhotoTransitionConfig *)transitionConfig {
     if (!_transitionManger) {
-        _transitionManger = [JKPhotoTransitionManger new];
-        _transitionManger.transitionSet = self.browserView;
-  _transitionManger.outScaleOfDragImageViewAnimation(0.15).transitionDuration(5).cancelDragImageViewAnimation(NO);
+        _transitionManger = [JKPhotoTransitionConfig new];
+        _transitionManger.transitionDuration = 0.35;
+        _transitionManger.outScaleOfDragImageViewAnimation = 0.15;
+        _transitionManger.inAnimation = JKImageBrowserAnimationMove;
+        _transitionManger.outAnimation = JKImageBrowserAnimationMove;
     }
     return _transitionManger;
 }

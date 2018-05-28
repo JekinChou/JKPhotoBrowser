@@ -37,11 +37,7 @@ typedef NS_ENUM(NSUInteger, JKImageBrowserImageViewFillType) {
     JKImageBrowserImageViewFillTypeFullWidth,   //宽度抵满屏幕宽度，高度不定
     JKImageBrowserImageViewFillTypeCompletely   //保证图片完整显示情况下最大限度填充
 };
-typedef NS_ENUM(NSUInteger, JKImageBrowserScreenOrientation) {
-    JKImageBrowserScreenOrientationUnknown, //未知
-    JKImageBrowserScreenOrientationVertical, //屏幕竖直方向展示
-    JKImageBrowserScreenOrientationHorizontal   //屏幕水平方向展示
-};
+
 
 typedef NS_ENUM(NSUInteger, JKImageBrowserAnimation) {
     JKImageBrowserAnimationNone,    //无动画

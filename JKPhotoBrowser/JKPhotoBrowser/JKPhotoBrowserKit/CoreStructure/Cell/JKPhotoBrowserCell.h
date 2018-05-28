@@ -31,5 +31,5 @@ JKPhotoTransitionProtocol>
 @property (nonatomic, strong, readonly) YYAnimatedImageView *animateImageView;
 @property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
 
-+ (void)countWithContainerSize:(CGSize)containerSize image:(id)image screenOrientation:(JKImageBrowserScreenOrientation)screenOrientation verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType completed:(void(^)(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale))completed;
++ (void)countWithContainerSize:(CGSize)containerSize image:(id)image verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType completed:(void(^)(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale))completed;
 @end

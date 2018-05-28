@@ -37,7 +37,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 #pragma mark  - initialize
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self= [super initWithFrame:frame]) {
@@ -122,9 +122,11 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 }
 - (void)dragAnimation_addAnimationImageViewWithPoint:(CGPoint)point {
     if (self.imageView.frame.size.width <= 0 || self.imageView.frame.size.height <= 0) return;
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
     if (!JKPhotoBrowser.isControllerPreferredForStatusBar) [[UIApplication sharedApplication] setStatusBarHidden:JKPhotoBrowser.statusBarIsHideBefore];
-    
+#pragma clang diagnostic pop
+
     [[NSNotificationCenter defaultCenter] postNotificationName:JKPhotoBrowserShouldHideNotification object:nil];
     
     _animateImageViewIsStart = YES;
@@ -207,7 +209,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 #pragma mark - UI处理代码
 - (void)countLayoutWithImage:(YYImage *)image completed:(void(^)(CGRect imageFrame))completed {
-    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image screenOrientation:JKImageBrowserScreenOrientationVertical verticalFillType:self.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image verticalFillType:self.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         self.scrollView.contentSize = CGSizeMake(contentSize.width, contentSize.height);
         self.scrollView.minimumZoomScale = minimumZoomScale;
         if (self.autoCountMaximumZoomScale) {
@@ -222,7 +224,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 }
 
 //计算图片大小核心代码
-+ (void)countWithContainerSize:(CGSize)containerSize image:(YYImage *)image screenOrientation:(JKImageBrowserScreenOrientation)screenOrientation verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType  completed:(void(^)(CGRect _imageFrame, CGSize _contentSize, CGFloat _minimumZoomScale, CGFloat _maximumZoomScale))completed {
++ (void)countWithContainerSize:(CGSize)containerSize image:(YYImage *)image verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType  completed:(void(^)(CGRect _imageFrame, CGSize _contentSize, CGFloat _minimumZoomScale, CGFloat _maximumZoomScale))completed {
     
     CGSize imageSize = image.size;
     CGFloat containerWidth = containerSize.width;
@@ -313,13 +315,20 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
         [UIView animateWithDuration:duration animations:^{
             self.animateImageView.frame = self->_frameOfOriginalOfImageView;
         } completion:^(BOOL finished) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
             if (!JKPhotoBrowser.isControllerPreferredForStatusBar) [[UIApplication sharedApplication] setStatusBarHidden:!JKPhotoBrowser.showStatusBar];
+#pragma clang diagnostic pop
+
             self.scrollView.contentOffset = self->_startOffsetOfScrollView;
             [[NSNotificationCenter defaultCenter] postNotificationName:JKPhtotBrowserViewDidShowWithTimeIntervalNotification object:nil];
             [self.animateImageView removeFromSuperview];
             self->_isCancelAnimate = NO;
         }];
     }
+}
+- (void)shouldScroll {
+   ((UICollectionView *)self.superview).scrollEnabled = YES;
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
@@ -344,7 +353,10 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self dragAnimation_respondsToScrollViewPanGesture];
- 
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self performSelector:@selector(shouldScroll) withObject:nil afterDelay:0.1 inModes:@[NSDefaultRunLoopMode]];
+    ((UICollectionView *)self.superview).scrollEnabled = NO;
+    
 }
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
     _isZooming = YES;

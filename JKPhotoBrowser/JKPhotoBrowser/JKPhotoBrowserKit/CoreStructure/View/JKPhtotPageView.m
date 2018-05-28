@@ -32,11 +32,11 @@
 - (void)setTotal:(NSInteger)total {
     _total = total;
     self.hidden = !total;
-    self.pageLabel.text = [NSString stringWithFormat:@"%d/%d",self.currentIndex,self.total];
+    self.pageLabel.text = [NSString stringWithFormat:@"%@/%@",@(self.currentIndex).stringValue,@(self.total).stringValue];
 }
 - (void)setCurrentIndex:(NSInteger)currentIndex {
     _currentIndex = currentIndex;
-    self.pageLabel.text = [NSString stringWithFormat:@"%d/%d",self.currentIndex,self.total];
+     self.pageLabel.text = [NSString stringWithFormat:@"%@/%@",@(self.currentIndex).stringValue,@(self.total).stringValue];
 }
 - (UILabel *)pageLabel {
     if (!_pageLabel) {

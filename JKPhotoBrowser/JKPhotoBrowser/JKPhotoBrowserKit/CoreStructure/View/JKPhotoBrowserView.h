@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JKPhotoModel.h"
-#import "JKPhotoTransitionManger.h"
+#import "JKPhotoTransitionConfig.h"
 #import "JKPhotoTransitionProtocol.h"
 #import "JKPhtotProgressView.h"
 @class JKPhotoBrowserView;
