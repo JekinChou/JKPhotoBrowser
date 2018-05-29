@@ -46,9 +46,11 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
         [tempArr addObject:model];
     }];
     JKPhotoBrowser *browser = [JKPhotoBrowser new];
+    browser.delegate = self;
+//    browser.dataSource = self;
     browser.dataArray = tempArr.copy;
     browser.currentIndex = indexPath.row;
-    browser.delegate = self;
+
     //展示
     [browser showFromController:self];
 }
@@ -123,11 +125,6 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
     JKImageModel *model = [JKImageModel new];
     model.url = [NSURL URLWithString:self.dataArray1[index]];
     model.sourceImageView = [self getImageViewOfCellByIndexPath:[NSIndexPath indexPathForRow:index inSection:1]];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:self.dataArray0[0] ofType:@"jpeg"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    YYImage *image = [YYImage imageWithData:data];
-    model.errorImage = image;
-    
     return model;
 }
 

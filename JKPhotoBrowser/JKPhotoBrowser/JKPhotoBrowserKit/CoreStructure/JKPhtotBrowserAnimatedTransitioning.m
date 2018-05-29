@@ -99,7 +99,7 @@
         return;
     }
     __block CGRect toFrame = CGRectZero;
-    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.screenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         toFrame = imageFrame;
     }];
     
@@ -156,7 +156,7 @@
         return;
     }
     __block CGRect toFrame = CGRectZero;
-    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.verticalScreenImageViewFillType  completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:containerView.bounds.size image:image  verticalFillType:browser.screenImageViewFillType  completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         toFrame = imageFrame;
     }];
     

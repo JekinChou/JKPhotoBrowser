@@ -37,6 +37,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 #pragma mark  - initialize
 - (void)dealloc {
+    [_animateImageView removeFromSuperview];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -103,11 +104,9 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 - (void)dragAnimation_respondsToScrollViewPanGesture {
     if (self.cancelDragImageViewAnimation || _isZooming) return;
-    
     UIScrollView *scrollView = self.scrollView;
     UIPanGestureRecognizer *pan = scrollView.panGestureRecognizer;
     if (pan.numberOfTouches != 1) return;
-    
     CGPoint point = [pan locationInView:self];
     BOOL shouldAddAnimationView = point.y > _lastPointY && scrollView.contentOffset.y < -10 && !self.animateImageView.superview;
     if (shouldAddAnimationView) {
@@ -116,7 +115,6 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
     if (pan.state == UIGestureRecognizerStateChanged) {
         [self dragAnimation_performAnimationForAnimationImageViewWithPoint:point container:self];
     }
-    
     _lastPointY = point.y;
     _lastPointX = point.x;
 }
@@ -185,7 +183,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
                 break;
             case JKDownLoadStateUnLoad:{//未下载
                 self.stateView.hidden = NO;
-                model.progressCallBack = ^(CGFloat progress) {};
+                model.progressCallBack = nil;
                 //去下载
                 [model setUrlWithDownloadInAdvance:model.url progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                     if (weakself.model != weakModel)return ;
@@ -209,7 +207,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 #pragma mark - UI处理代码
 - (void)countLayoutWithImage:(YYImage *)image completed:(void(^)(CGRect imageFrame))completed {
-    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image verticalFillType:self.verticalScreenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
+    [JKPhotoBrowserCell countWithContainerSize:self.scrollView.bounds.size image:image verticalFillType:self.screenImageViewFillType completed:^(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale) {
         self.scrollView.contentSize = CGSizeMake(contentSize.width, contentSize.height);
         self.scrollView.minimumZoomScale = minimumZoomScale;
         if (self.autoCountMaximumZoomScale) {

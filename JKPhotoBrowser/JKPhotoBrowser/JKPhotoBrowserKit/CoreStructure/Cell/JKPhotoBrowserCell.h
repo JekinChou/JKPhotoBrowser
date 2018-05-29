@@ -22,14 +22,11 @@
 @interface JKPhotoBrowserCell : UICollectionViewCell<
 JKPhotoTransitionProtocol>
 @property (nonatomic,strong) id<JKPhotoModel>model;
-/**
- 状态view
- */
 @property (nonatomic,assign,class) UIView<JKPhotoBrowserStateProtocol> *progressView;
 @property (nonatomic,weak) id<JKPhotoBrowserCellDelegate> delegate;
 @property (nonatomic,strong,readonly) YYAnimatedImageView *imageView;
-@property (nonatomic, strong, readonly) YYAnimatedImageView *animateImageView;
-@property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
+@property (nonatomic,strong, readonly) YYAnimatedImageView *animateImageView;
+@property (nonatomic,assign) JKImageBrowserImageViewFillType screenImageViewFillType;
 
 + (void)countWithContainerSize:(CGSize)containerSize image:(id)image verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType completed:(void(^)(CGRect imageFrame, CGSize contentSize, CGFloat minimumZoomScale, CGFloat maximumZoomScale))completed;
 @end

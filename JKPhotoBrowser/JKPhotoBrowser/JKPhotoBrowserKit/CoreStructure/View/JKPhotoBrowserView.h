@@ -67,7 +67,7 @@
 @property (nonatomic,weak) id<JKPhotoBrowserViewDataSource> jk_dataSource;
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
 
-@property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
+@property (nonatomic, assign) JKImageBrowserImageViewFillType screenImageViewFillType;
 
 - (void)scrollToPageWithIndex:(NSInteger)index;
 //构建状态view

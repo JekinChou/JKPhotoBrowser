@@ -89,7 +89,7 @@ UIScrollViewDelegate>
     cell.cancelDragImageViewAnimation = self.cancelDragImageViewAnimation;
     cell.outScaleOfDragImageViewAnimation = self.outScaleOfDragImageViewAnimation;
     cell.autoCountMaximumZoomScale = self.autoCountMaximumZoomScale;
-    cell.verticalScreenImageViewFillType = self.verticalScreenImageViewFillType;
+    cell.screenImageViewFillType = self.screenImageViewFillType;
     if ([self.jk_dataSource respondsToSelector:@selector(photoBrowserView:itemForCellAtIndex:)]) {
         cell.model = [self.jk_dataSource photoBrowserView:self itemForCellAtIndex:indexPath.row];
     }else {

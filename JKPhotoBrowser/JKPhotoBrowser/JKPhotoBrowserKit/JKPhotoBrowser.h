@@ -68,14 +68,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  图片填充类型
  */
-@property (nonatomic, assign) JKImageBrowserImageViewFillType verticalScreenImageViewFillType;
+@property (nonatomic, assign) JKImageBrowserImageViewFillType screenImageViewFillType;
 
 #pragma mark - 其他
-/**
- 最大显示pt（超过这个数量框架会自动做压缩和裁剪，默认为3500）
- */
-@property (class, assign) CGFloat maxDisplaySize;
-
 /**
  显示状态栏
  */

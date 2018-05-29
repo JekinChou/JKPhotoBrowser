@@ -18,8 +18,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 };
 @protocol JKPhotoModel <NSObject>
 /**
- 本地图片
-  
+ 本地图片 支持gif显示
  */
 @property (nonatomic,strong,nullable)YYImage *localImage;
 
@@ -32,7 +31,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 /**
  进度回调
  */
-@property (nonatomic,copy) void(^progressCallBack)(CGFloat progress);
+@property (nonatomic,copy,nullable) void(^progressCallBack)(CGFloat progress);
 
 //下载状态
 @property (nonatomic,assign) JKDownLoadState downState;
@@ -45,15 +44,6 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
  @param error 失败的回调
  */
 - (void)setUrlWithDownloadInAdvance:(NSURL *)url progress:(JKWebImageProgressBlock)progress successful:(os_block_t)successful fail:(void(^)(NSError *error))error;
-
-
-
-
-/**
- 本地 gif 名字
- （不带后缀）
- */
-@property (nonatomic,copy,nullable) NSString *gifName;
 
 /**
  gif 转换图

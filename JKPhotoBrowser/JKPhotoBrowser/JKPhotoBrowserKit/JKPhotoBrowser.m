@@ -12,7 +12,6 @@
 #import "JKPhtotBrowserAnimatedTransitioning.h"
 #import "JKPhtotProgressView.h"
 #import "JKPhotoBrowserViewFlowLayout.h"
-static CGFloat _maxDisplaySize = 3500;
 static BOOL _showStatusBar = NO;    //改控制器是否需要隐藏状态栏
 static BOOL _isControllerPreferredForStatusBar = YES; //状态栏是否是控制器优先
 static BOOL _statusBarIsHideBefore = NO;    //状态栏在模态切换之前是否隐藏
@@ -24,7 +23,6 @@ JKPhotoBrowserViewDelegate> {
     UIInterfaceOrientationMask _supportAutorotateTypes;
     UIWindow *_window;
     JKPhtotBrowserAnimatedTransitioning *_animatedTransitioningManager;
-    NSMutableDictionary <NSString *,id<JKPhotoModel>>*_datasM;
 }
 @property (nonatomic,strong) JKPhotoTransitionConfig *transitionManger;
 @property (nonatomic,strong) JKPhotoBrowserView *browserView;
@@ -83,11 +81,11 @@ JKPhotoBrowserViewDelegate> {
     _customGestureDeal = YES;
     _autoCountMaximumZoomScale = YES;
     _animatedTransitioningManager = [JKPhtotBrowserAnimatedTransitioning new];
-    _verticalScreenImageViewFillType = JKImageBrowserImageViewFillTypeFullWidth;
+    _screenImageViewFillType = JKImageBrowserImageViewFillTypeFullWidth;
 }
 - (void)setConfigInfoToChildModules {
     self.browserView.autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
-    self.browserView.verticalScreenImageViewFillType = self.verticalScreenImageViewFillType;
+    self.browserView.screenImageViewFillType = self.screenImageViewFillType;
     ((JKPhotoBrowserViewFlowLayout *)self.browserView.collectionViewLayout).space = self.space;
 }
 - (void)registerNotification {
@@ -166,10 +164,20 @@ JKPhotoBrowserViewDelegate> {
 
 #pragma mark - JKPhotoBrowserViewDataSource
 - (NSInteger)numberOfTotalImageInPhotoBrowser:(JKPhotoBrowserView *)browserView {
+    if (self.dataArray.count>0){
+        self.pageView.total = self.dataArray.count;
+        return self.dataArray.count;
+    }
     NSInteger number = [self.dataSource numberInPhotoBrowser:self];
-    if(number == 0)number = self.dataArray.count;
     self.pageView.total = number;
-    if (!_datasM)_datasM = [NSMutableDictionary  dictionaryWithCapacity:number];
+    if (!_dataArray){
+        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:number];
+        for (int i = 0; i<number; i++) {
+            id<JKPhotoModel> model = [self.dataSource photoBrowser:self modelForCellAtIndex:i];
+            [arrayM addObject:model];
+        }
+        self.dataArray = arrayM.copy;
+    }
     return number;
 }
 
@@ -181,15 +189,9 @@ JKPhotoBrowserViewDelegate> {
  @return return value description
  */
 - (id<JKPhotoModel>)photoBrowserView:(JKPhotoBrowserView *)browserView itemForCellAtIndex:(NSInteger)index {
-    //判断数组中是否有这个模型,如果有就返回
-    //没有就走数据源方法,将返回的模型保存在数组中
-    //最后返回Nil
-    NSString *key = [NSString stringWithFormat:@"%ld",(long)index];
-    if (_datasM&&[_datasM valueForKey:key]) {
-        return _datasM[key];
-    }else if ([self.dataSource respondsToSelector:@selector(photoBrowser:modelForCellAtIndex:)]){
+    if (self.dataArray.count>0)return self.dataArray[index];
+    if ([self.dataSource respondsToSelector:@selector(photoBrowser:modelForCellAtIndex:)]){
         id<JKPhotoModel>model = [self.dataSource photoBrowser:self modelForCellAtIndex:index];
-        [_datasM setObject:model forKey:key];
         return model;
     }
     return nil;
@@ -206,7 +208,6 @@ JKPhotoBrowserViewDelegate> {
 
 - (void)photoBrowserView:(JKPhotoBrowserView *)browserView longPressBegin:(UILongPressGestureRecognizer *)gesture index:(NSInteger)index {
     if (!self.customGestureDeal) {
-        NSLog(@"长按了");
         return;
     }
     if ([self.delegate respondsToSelector:@selector(photoBrowser:longPressWithIndex:)]) {
@@ -225,30 +226,6 @@ JKPhotoBrowserViewDelegate> {
 
 
 #pragma mark - SET/GET
-- (void)setDataArray:(NSArray<JKPhotoModel> *)dataArray {
-    _dataArray = dataArray;
-    if (dataArray.count>0&&!_datasM) {
-        _datasM = [NSMutableDictionary  dictionaryWithCapacity:dataArray.count];
-        for (int i = 0; i<dataArray.count; i++) {
-            [_datasM setObject:dataArray[i] forKey:[NSString stringWithFormat:@"%d",i]];
-        }
-    }
-}
-- (NSArray<JKPhotoModel> *)dataArray {
-    NSArray *allKeys = _datasM.allKeys;
-    if (allKeys.count == 0)return nil;
-    [allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        NSComparisonResult resuest = [obj2 compare:obj1];
-        return resuest;
-    }];
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:_datasM.count];
-    for (NSString *key in allKeys) {
-        [array addObject:_datasM[key]];
-    }
-    if (array.count == 0)array = nil;
-    
-    return array.copy;
-}
 - (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
     [self.browserView setStateView:stateView];
 }
@@ -282,13 +259,6 @@ JKPhotoBrowserViewDelegate> {
     return _transitionManger;
 }
 
-+ (CGFloat)maxDisplaySize {
-    return _maxDisplaySize;
-}
-
-+ (void)setMaxDisplaySize:(CGFloat)maxDisplaySize {
-    _maxDisplaySize = maxDisplaySize;
-}
 + (BOOL)showStatusBar {
     return _showStatusBar;
 }
