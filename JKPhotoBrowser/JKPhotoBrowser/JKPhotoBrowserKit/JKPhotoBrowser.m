@@ -24,7 +24,7 @@ JKPhotoBrowserViewDelegate> {
     UIWindow *_window;
     JKPhtotBrowserAnimatedTransitioning *_animatedTransitioningManager;
 }
-@property (nonatomic,strong) JKPhotoTransitionConfig *transitionManger;
+@property (nonatomic,strong) JKPhotoTransitionConfig *transitionConfig;
 @property (nonatomic,strong) JKPhotoBrowserView *browserView;
 @property (class, assign) BOOL isControllerPreferredForStatusBar;
 @end
@@ -59,6 +59,8 @@ JKPhotoBrowserViewDelegate> {
     [self setConfigInfoToChildModules];
     [self.view addSubview:self.browserView];
     [self.view addSubview:self.pageView];
+    if (self.topFunctionView)[self.view addSubview:self.topFunctionView];
+    if (self.bottomFunctionView)[self.view addSubview:self.bottomFunctionView];    
     self.browserView.alpha = 0;
     self.pageView.currentIndex = self.currentIndex+1;
     [self.browserView scrollToPageWithIndex:self.currentIndex];
@@ -242,21 +244,21 @@ JKPhotoBrowserViewDelegate> {
 - (JKPhotoBrowserView *)browserView {
     if (!_browserView) {
         _browserView = [[JKPhotoBrowserView alloc]initWithFrame:self.view.bounds collectionViewLayout:[JKPhotoBrowserViewFlowLayout new]];
-        _browserView.backgroundColor = [UIColor blackColor];
+        _browserView.backgroundColor = [UIColor clearColor];
         _browserView.jk_dataSource = self;
         _browserView.jk_delegate = self;
     }
     return _browserView;
 }
 - (JKPhotoTransitionConfig *)transitionConfig {
-    if (!_transitionManger) {
-        _transitionManger = [JKPhotoTransitionConfig new];
-        _transitionManger.transitionDuration = 0.35;
-        _transitionManger.outScaleOfDragImageViewAnimation = 0.15;
-        _transitionManger.inAnimation = JKImageBrowserAnimationMove;
-        _transitionManger.outAnimation = JKImageBrowserAnimationMove;
+    if (!_transitionConfig) {
+        _transitionConfig = [JKPhotoTransitionConfig new];
+        _transitionConfig.transitionDuration = 0.35;
+        _transitionConfig.outScaleOfDragImageViewAnimation = 0.15;
+        _transitionConfig.inAnimation = JKImageBrowserAnimationMove;
+        _transitionConfig.outAnimation = JKImageBrowserAnimationMove;
     }
-    return _transitionManger;
+    return _transitionConfig;
 }
 
 + (BOOL)showStatusBar {

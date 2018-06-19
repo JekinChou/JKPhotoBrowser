@@ -99,6 +99,7 @@ UIScrollViewDelegate>
     return cell;
 }
 
+
 #pragma mark - SET/GET
 - (void)setStateView:(UIView<JKPhotoBrowserStateProtocol,NSCopying> *)stateView {
     JKPhotoBrowserCell.progressView = stateView;

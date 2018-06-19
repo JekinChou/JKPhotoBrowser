@@ -22,6 +22,8 @@
 		1868997820B68AC600A141C0 /* JKPhtotProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997720B68AC600A141C0 /* JKPhtotProgressView.m */; };
 		1868997B20B695C000A141C0 /* JKPhtotPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997A20B695C000A141C0 /* JKPhtotPageView.m */; };
 		1868997E20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868997D20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m */; };
+		187D2C4820D8E05900495ED3 /* JKPhotoBrowserTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D2C4720D8E05900495ED3 /* JKPhotoBrowserTopView.m */; };
+		187D2C4B20D8E8BA00495ED3 /* JKPhotoSavePhotoManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D2C4A20D8E8BA00495ED3 /* JKPhotoSavePhotoManger.m */; };
 		18C2D9C320B96ADB006D8C0E /* JKPhotoBrowserViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C2D9C220B96ADB006D8C0E /* JKPhotoBrowserViewFlowLayout.m */; };
 		18D7DA5620BD47C800C511E5 /* localBigImage0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D7DA4C20BD47C800C511E5 /* localBigImage0.jpeg */; };
 		18D7DA5720BD47C800C511E5 /* localImage1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D7DA4D20BD47C800C511E5 /* localImage1.jpeg */; };
@@ -69,6 +71,10 @@
 		1868997A20B695C000A141C0 /* JKPhtotPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhtotPageView.m; sourceTree = "<group>"; };
 		1868997C20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhtotBrowserAnimatedTransitioning.h; sourceTree = "<group>"; };
 		1868997D20B6992D00A141C0 /* JKPhtotBrowserAnimatedTransitioning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhtotBrowserAnimatedTransitioning.m; sourceTree = "<group>"; };
+		187D2C4620D8E05900495ED3 /* JKPhotoBrowserTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserTopView.h; sourceTree = "<group>"; };
+		187D2C4720D8E05900495ED3 /* JKPhotoBrowserTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserTopView.m; sourceTree = "<group>"; };
+		187D2C4920D8E8BA00495ED3 /* JKPhotoSavePhotoManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPhotoSavePhotoManger.h; sourceTree = "<group>"; };
+		187D2C4A20D8E8BA00495ED3 /* JKPhotoSavePhotoManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPhotoSavePhotoManger.m; sourceTree = "<group>"; };
 		18C2D9C120B96ADB006D8C0E /* JKPhotoBrowserViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserViewFlowLayout.h; sourceTree = "<group>"; };
 		18C2D9C220B96ADB006D8C0E /* JKPhotoBrowserViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserViewFlowLayout.m; sourceTree = "<group>"; };
 		18D7DA4C20BD47C800C511E5 /* localBigImage0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = localBigImage0.jpeg; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 				1849D3B920B53E1300697616 /* AppDelegate.m */,
 				1849D3BB20B53E1300697616 /* ViewController.h */,
 				1849D3BC20B53E1300697616 /* ViewController.m */,
+				187D2C4620D8E05900495ED3 /* JKPhotoBrowserTopView.h */,
+				187D2C4720D8E05900495ED3 /* JKPhotoBrowserTopView.m */,
 				1849D3BE20B53E1300697616 /* Main.storyboard */,
 				1849D3C120B53E1600697616 /* Assets.xcassets */,
 				1849D3C320B53E1600697616 /* LaunchScreen.storyboard */,
@@ -195,6 +203,8 @@
 			children = (
 				1849D3E120B56AD300697616 /* JKPhotoTransitionConfig.h */,
 				1849D3E220B56AD300697616 /* JKPhotoTransitionConfig.m */,
+				187D2C4920D8E8BA00495ED3 /* JKPhotoSavePhotoManger.h */,
+				187D2C4A20D8E8BA00495ED3 /* JKPhotoSavePhotoManger.m */,
 			);
 			path = Manger;
 			sourceTree = "<group>";
@@ -354,10 +364,12 @@
 				1849D3E320B56AD300697616 /* JKPhotoTransitionConfig.m in Sources */,
 				1849D3BD20B53E1300697616 /* ViewController.m in Sources */,
 				1849D3C820B53E1600697616 /* main.m in Sources */,
+				187D2C4820D8E05900495ED3 /* JKPhotoBrowserTopView.m in Sources */,
 				1849D3EC20B576BE00697616 /* JKPhotoBrowserCell.m in Sources */,
 				18C2D9C320B96ADB006D8C0E /* JKPhotoBrowserViewFlowLayout.m in Sources */,
 				1849D3D020B542AD00697616 /* JKPhotoBrowser.m in Sources */,
 				1868997B20B695C000A141C0 /* JKPhtotPageView.m in Sources */,
+				187D2C4B20D8E8BA00495ED3 /* JKPhotoSavePhotoManger.m in Sources */,
 				1849D3BA20B53E1300697616 /* AppDelegate.m in Sources */,
 				1868997820B68AC600A141C0 /* JKPhtotProgressView.m in Sources */,
 				1849D3E720B5704B00697616 /* JKPhotoBrowserView.m in Sources */,

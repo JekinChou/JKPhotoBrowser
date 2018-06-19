@@ -9,13 +9,14 @@
 #import "JKImageModel.h"
 #import <YYWebImage/YYWebImage.h>
 #import "JKPhotoMacro.h"
+#import <YYImageCoder.h>
 @interface JKImageModel () {
     YYWebImageOperation *_currentOperation;
 }
 
 @end
 @implementation JKImageModel
-@synthesize briefImage = _briefImage,localImage = _localImage,url = _url,progressCallBack = _progressCallBack,animatedImage = _animatedImage,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState,sourceImageView = _sourceImageView;
+@synthesize briefImage = _briefImage,localImage = _localImage,url = _url,progressCallBack = _progressCallBack,errorImage = _errorImage,maximumZoomScale = _maximumZoomScale,downState = _downState,sourceImageView = _sourceImageView;
 #pragma mark - initialize
 - (instancetype)init {
     if (self = [super init]) {

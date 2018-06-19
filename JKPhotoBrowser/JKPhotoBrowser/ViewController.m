@@ -13,6 +13,8 @@
 #import "JKPhotoMacro.h"
 #import <YYWebImage/UIImage+YYWebImage.h>
 #import <YYCache/YYCache.h>
+#import "JKPhotoBrowserTopView.h"
+#import "JKPhotoSavePhotoManger.h"
 #define CELLSIZE CGSizeMake(JK_SCREEN_WIDTH/3, JK_SCREEN_WIDTH/3)
 static int tagOfImageOfCell = 1000;
 static int tagOfLabelOfCell = 1001;
@@ -47,7 +49,21 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
     }];
     JKPhotoBrowser *browser = [JKPhotoBrowser new];
     browser.delegate = self;
-//    browser.dataSource = self;
+    JKPhotoBrowserTopView *view = [JKPhotoBrowserTopView new];
+    view.backgroundColor = [UIColor clearColor];
+    view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50);
+    __weak typeof(browser)weakBrowser = browser;
+    view.btnDidClick = ^{
+        id<JKPhotoModel>model = weakBrowser.dataArray[weakBrowser.currentIndex];
+        UIImage *image = model.localImage;
+        if (!image)return;
+        [JKPhotoSavePhotoManger judgeAlbumAuthorizationStatusSuccess:^{
+            [JKPhotoSavePhotoManger saveImageToAlbumWithImage:image withCompletion:^(BOOL successful) {
+              
+            }];
+        }];
+    };
+    browser.topFunctionView = view;
     browser.dataArray = tempArr.copy;
     browser.currentIndex = indexPath.row;
 
@@ -58,13 +74,30 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
 #pragma mark 方式二、使用代理配置数据源
 
 - (void)B_showWithTouchIndexPath:(NSIndexPath *)indexPath {
-    
 
     JKPhotoBrowser *browser = [JKPhotoBrowser new];
+ 
     browser.dataSource = self;
     browser.delegate = self;
     browser.currentIndex = indexPath.row;
-    
+    JKPhotoBrowserTopView *view = [JKPhotoBrowserTopView new];
+    view.backgroundColor = [UIColor clearColor];
+    view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50);
+    __weak typeof(browser)weakBrowser = browser;
+    view.btnDidClick = ^{
+        id<JKPhotoModel>model = weakBrowser.dataArray[weakBrowser.currentIndex];
+        UIImage *image = model.localImage;
+        if (!image)return;
+        [JKPhotoSavePhotoManger judgeAlbumAuthorizationStatusSuccess:^{
+            [JKPhotoSavePhotoManger saveImageToAlbumWithImage:image withCompletion:^(BOOL successful) {
+                if (successful) {
+                    NSLog(@"保存成功");
+                }
+                
+            }];
+        }];
+    };
+       browser.topFunctionView = view;
     //展示
     [browser showFromController:self];
 }

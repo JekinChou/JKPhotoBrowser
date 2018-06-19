@@ -38,7 +38,6 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 #pragma mark  - initialize
 - (void)dealloc {
     [_animateImageView removeFromSuperview];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self= [super initWithFrame:frame]) {
@@ -57,6 +56,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 }
 #pragma mark - PRIVATEMETHOD
 - (void)setUpUI {
+    self.contentView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.scrollView];
     [self.scrollView addSubview:self.imageView];
     [self.contentView addSubview:self.stateView];
@@ -325,9 +325,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
         }];
     }
 }
-- (void)shouldScroll {
-   ((UICollectionView *)self.superview).scrollEnabled = YES;
-}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     CGRect imageViewFrame = self.imageView.frame;
@@ -351,14 +349,9 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self dragAnimation_respondsToScrollViewPanGesture];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self performSelector:@selector(shouldScroll) withObject:nil afterDelay:0.1 inModes:@[NSDefaultRunLoopMode]];
-    ((UICollectionView *)self.superview).scrollEnabled = NO;
-    
 }
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
     _isZooming = YES;
-    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -373,7 +366,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 - (void)setCancelDragImageViewAnimation:(BOOL)cancelDragImageViewAnimation {
     _cancelDragImageViewAnimation = cancelDragImageViewAnimation;
     self.scrollView.alwaysBounceVertical = !cancelDragImageViewAnimation;
-    self.scrollView.alwaysBounceHorizontal = !cancelDragImageViewAnimation;
+    self.scrollView.alwaysBounceHorizontal = NO;
 }
 - (void)setModel:(id<JKPhotoModel>)model {
     _model = model;
@@ -406,6 +399,7 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView.backgroundColor = [UIColor clearColor];
         _scrollView.delegate = self;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;

@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 /**
  本地图片 支持gif显示
  */
-@property (nonatomic,strong,nullable)YYImage *localImage;
+@property (nonatomic,strong,nullable)UIImage *localImage;
 
 /**
  网络图片 url
@@ -45,10 +45,6 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
  */
 - (void)setUrlWithDownloadInAdvance:(NSURL *)url progress:(JKWebImageProgressBlock)progress successful:(os_block_t)successful fail:(void(^)(NSError *error))error;
 
-/**
- gif 转换图
- */
-@property (nonatomic,strong,nullable) YYImage *animatedImage;
 
 
 /**
@@ -71,7 +67,7 @@ typedef NS_ENUM(NSInteger,JKDownLoadState){
 /**
  下载错误视图
  */
-@property (nonatomic,strong,nullable) YYImage *errorImage;
+@property (nonatomic,strong,nullable) UIImage *errorImage;
 
 @end
 NS_ASSUME_NONNULL_END

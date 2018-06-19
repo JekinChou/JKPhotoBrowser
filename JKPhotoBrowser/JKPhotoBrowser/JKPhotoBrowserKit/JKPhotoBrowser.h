@@ -45,7 +45,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak,readwrite) UIView<JKPhotoBrowserStateProtocol,NSCopying> *stateView;
 
 /**
- 分页距离
+ 自定义容器处理view,顶部功能处理
+ */
+@property (nonatomic,strong,nullable) UIView *topFunctionView;
+@property (nonatomic,strong,nullable) UIView *bottomFunctionView;
+/**
+ 分页距离,defalut is 18
  */
 @property (nonatomic,assign) CGFloat space;
 
@@ -57,7 +62,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) JKPhotoTransitionConfig *transitionConfig;
 
 #pragma mark - 缩放
-
 
 /**
  是否需要自动计算缩放
