@@ -60,7 +60,7 @@ JKPhotoBrowserViewDelegate> {
     [self.view addSubview:self.browserView];
     [self.view addSubview:self.pageView];
     if (self.topFunctionView)[self.view addSubview:self.topFunctionView];
-    if (self.bottomFunctionView)[self.view addSubview:self.bottomFunctionView];    
+    if (self.bottomFunctionView)[self.view addSubview:self.bottomFunctionView];
     self.browserView.alpha = 0;
     self.pageView.currentIndex = self.currentIndex+1;
     [self.browserView scrollToPageWithIndex:self.currentIndex];
@@ -105,11 +105,14 @@ JKPhotoBrowserViewDelegate> {
 - (void)phtotBrowserChangeAlphaWithNotification:(NSNotification *)notification {
     CGFloat scale = [notification.userInfo[JKPhtotBrowserChangeAlphaNotification] floatValue];
     self.view.backgroundColor = [self.view.backgroundColor colorWithAlphaComponent:scale];
+    self.pageView.alpha = self.bottomFunctionView.alpha = self.topFunctionView.alpha = scale;
+    
 }
 - (void)phtotBrowserWillShowWithNotification:(NSNotification *)notification {
     CGFloat timeInterval = [notification.userInfo[JKPhtotBrowserViewWillShowWithTimeIntervalNotification] floatValue];
     [UIView animateWithDuration:timeInterval animations:^{
         self.view.backgroundColor = [self.view.backgroundColor colorWithAlphaComponent:1];
+        self.bottomFunctionView.alpha = self.topFunctionView.alpha = self.pageView.alpha = 1;
     }];
 }
 - (void)phtotBrowserDidShowWithNotification:(NSNotification *)notification {
@@ -232,7 +235,19 @@ JKPhotoBrowserViewDelegate> {
     [self.browserView setStateView:stateView];
 }
 
+- (void)setTopFunctionView:(UIView *)topFunctionView {
+    _topFunctionView = topFunctionView;
+    CGRect rect = topFunctionView.frame;
+    rect.origin = CGPointZero;
+    _topFunctionView.frame = rect;
+}
 
+- (void)setBottomFunctionView:(UIView *)bottomFunctionView {
+    _bottomFunctionView = bottomFunctionView;
+    CGRect rect = bottomFunctionView.frame;
+    rect.origin = CGPointMake(0, [UIScreen mainScreen].bounds.size.height - rect.size.height);
+    _bottomFunctionView.frame = rect;
+}
 - (UIView<JKPhotoIndexPage> *)pageView {
     if (!_pageView) {
         _pageView = [JKPhtotPageView new];

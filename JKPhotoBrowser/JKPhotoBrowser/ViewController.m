@@ -80,6 +80,7 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
     browser.dataSource = self;
     browser.delegate = self;
     browser.currentIndex = indexPath.row;
+
     JKPhotoBrowserTopView *view = [JKPhotoBrowserTopView new];
     view.backgroundColor = [UIColor clearColor];
     view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50);
