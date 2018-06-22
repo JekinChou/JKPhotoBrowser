@@ -25,16 +25,16 @@
 		18D7DA5D20BD47C800C511E5 /* localImage8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D7DA5320BD47C800C511E5 /* localImage8.jpeg */; };
 		18D7DA5E20BD47C800C511E5 /* localImage3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D7DA5420BD47C800C511E5 /* localImage3.jpeg */; };
 		18D7DA5F20BD47C800C511E5 /* localImage2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18D7DA5520BD47C800C511E5 /* localImage2.jpeg */; };
-		18F83E2020DCAAE5007DE0A5 /* JKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83DFF20DCAAE5007DE0A5 /* JKPhotoBrowser.m */; };
-		18F83E2120DCAAE5007DE0A5 /* JKPhotoTransitionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E0320DCAAE5007DE0A5 /* JKPhotoTransitionConfig.m */; };
-		18F83E2220DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E0420DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.m */; };
-		18F83E2320DCAAE5007DE0A5 /* JKImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E0620DCAAE5007DE0A5 /* JKImageModel.m */; };
-		18F83E2420DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E0920DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */; };
-		18F83E2520DCAAE5007DE0A5 /* JKPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E0B20DCAAE5007DE0A5 /* JKPhotoBrowserCell.m */; };
-		18F83E2620DCAAE5007DE0A5 /* JKPhtotPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E1120DCAAE5007DE0A5 /* JKPhtotPageView.m */; };
-		18F83E2720DCAAE5007DE0A5 /* JKPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E1220DCAAE5007DE0A5 /* JKPhotoBrowserView.m */; };
-		18F83E2820DCAAE5007DE0A5 /* JKPhtotProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E1320DCAAE5007DE0A5 /* JKPhtotProgressView.m */; };
-		18F83E2920DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E1520DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */; };
+		18F83E4E20DCD163007DE0A5 /* JKPhotoTransitionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E2E20DCD163007DE0A5 /* JKPhotoTransitionConfig.m */; };
+		18F83E4F20DCD163007DE0A5 /* JKPhotoSavePhotoManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E2F20DCD163007DE0A5 /* JKPhotoSavePhotoManger.m */; };
+		18F83E5020DCD163007DE0A5 /* JKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E3120DCD163007DE0A5 /* JKPhotoBrowser.m */; };
+		18F83E5120DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E3320DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */; };
+		18F83E5220DCD163007DE0A5 /* JKPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E3520DCD163007DE0A5 /* JKPhotoBrowserCell.m */; };
+		18F83E5320DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E3A20DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */; };
+		18F83E5420DCD163007DE0A5 /* JKImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E3C20DCD163007DE0A5 /* JKImageModel.m */; };
+		18F83E5520DCD163007DE0A5 /* JKPhtotPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E4220DCD163007DE0A5 /* JKPhtotPageView.m */; };
+		18F83E5620DCD163007DE0A5 /* JKPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E4320DCD163007DE0A5 /* JKPhotoBrowserView.m */; };
+		18F83E5720DCD163007DE0A5 /* JKPhtotProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83E4420DCD163007DE0A5 /* JKPhtotProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,33 +60,33 @@
 		18D7DA5320BD47C800C511E5 /* localImage8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = localImage8.jpeg; sourceTree = "<group>"; };
 		18D7DA5420BD47C800C511E5 /* localImage3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = localImage3.jpeg; sourceTree = "<group>"; };
 		18D7DA5520BD47C800C511E5 /* localImage2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = localImage2.jpeg; sourceTree = "<group>"; };
-		18F83DFF20DCAAE5007DE0A5 /* JKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowser.m; sourceTree = "<group>"; };
-		18F83E0120DCAAE5007DE0A5 /* JKPhotoTransitionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionConfig.h; sourceTree = "<group>"; };
-		18F83E0220DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoSavePhotoManger.h; sourceTree = "<group>"; };
-		18F83E0320DCAAE5007DE0A5 /* JKPhotoTransitionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoTransitionConfig.m; sourceTree = "<group>"; };
-		18F83E0420DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoSavePhotoManger.m; sourceTree = "<group>"; };
-		18F83E0620DCAAE5007DE0A5 /* JKImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKImageModel.m; sourceTree = "<group>"; };
-		18F83E0720DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotBrowserAnimatedTransitioning.h; sourceTree = "<group>"; };
-		18F83E0920DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserViewFlowLayout.m; sourceTree = "<group>"; };
-		18F83E0A20DCAAE5007DE0A5 /* JKPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserCell.h; sourceTree = "<group>"; };
-		18F83E0B20DCAAE5007DE0A5 /* JKPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserCell.m; sourceTree = "<group>"; };
-		18F83E0C20DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserViewFlowLayout.h; sourceTree = "<group>"; };
-		18F83E0E20DCAAE5007DE0A5 /* JKPhtotPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotPageView.h; sourceTree = "<group>"; };
-		18F83E0F20DCAAE5007DE0A5 /* JKPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserView.h; sourceTree = "<group>"; };
-		18F83E1020DCAAE5007DE0A5 /* JKPhtotProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotProgressView.h; sourceTree = "<group>"; };
-		18F83E1120DCAAE5007DE0A5 /* JKPhtotPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotPageView.m; sourceTree = "<group>"; };
-		18F83E1220DCAAE5007DE0A5 /* JKPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserView.m; sourceTree = "<group>"; };
-		18F83E1320DCAAE5007DE0A5 /* JKPhtotProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotProgressView.m; sourceTree = "<group>"; };
-		18F83E1420DCAAE5007DE0A5 /* JKImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKImageModel.h; sourceTree = "<group>"; };
-		18F83E1520DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotBrowserAnimatedTransitioning.m; sourceTree = "<group>"; };
-		18F83E1720DCAAE5007DE0A5 /* JKPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoModel.h; sourceTree = "<group>"; };
-		18F83E1820DCAAE5007DE0A5 /* JKPhotoBrowserDataSouce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDataSouce.h; sourceTree = "<group>"; };
-		18F83E1920DCAAE5007DE0A5 /* JKPhotoIndexPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoIndexPage.h; sourceTree = "<group>"; };
-		18F83E1A20DCAAE5007DE0A5 /* JKPhotoBrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDelegate.h; sourceTree = "<group>"; };
-		18F83E1B20DCAAE5007DE0A5 /* JKPhotoBrowserStateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserStateProtocol.h; sourceTree = "<group>"; };
-		18F83E1C20DCAAE5007DE0A5 /* JKPhotoTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionProtocol.h; sourceTree = "<group>"; };
-		18F83E1E20DCAAE5007DE0A5 /* JKPhotoMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoMacro.h; sourceTree = "<group>"; };
-		18F83E1F20DCAAE5007DE0A5 /* JKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowser.h; sourceTree = "<group>"; };
+		18F83E2C20DCD163007DE0A5 /* JKPhotoTransitionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionConfig.h; sourceTree = "<group>"; };
+		18F83E2D20DCD163007DE0A5 /* JKPhotoSavePhotoManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoSavePhotoManger.h; sourceTree = "<group>"; };
+		18F83E2E20DCD163007DE0A5 /* JKPhotoTransitionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoTransitionConfig.m; sourceTree = "<group>"; };
+		18F83E2F20DCD163007DE0A5 /* JKPhotoSavePhotoManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoSavePhotoManger.m; sourceTree = "<group>"; };
+		18F83E3120DCD163007DE0A5 /* JKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowser.m; sourceTree = "<group>"; };
+		18F83E3320DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserViewFlowLayout.m; sourceTree = "<group>"; };
+		18F83E3420DCD163007DE0A5 /* JKPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserCell.h; sourceTree = "<group>"; };
+		18F83E3520DCD163007DE0A5 /* JKPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserCell.m; sourceTree = "<group>"; };
+		18F83E3620DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserViewFlowLayout.h; sourceTree = "<group>"; };
+		18F83E3720DCD163007DE0A5 /* JKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowser.h; sourceTree = "<group>"; };
+		18F83E3920DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotBrowserAnimatedTransitioning.h; sourceTree = "<group>"; };
+		18F83E3A20DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotBrowserAnimatedTransitioning.m; sourceTree = "<group>"; };
+		18F83E3C20DCD163007DE0A5 /* JKImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKImageModel.m; sourceTree = "<group>"; };
+		18F83E3D20DCD163007DE0A5 /* JKImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKImageModel.h; sourceTree = "<group>"; };
+		18F83E3F20DCD163007DE0A5 /* JKPhtotPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotPageView.h; sourceTree = "<group>"; };
+		18F83E4020DCD163007DE0A5 /* JKPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserView.h; sourceTree = "<group>"; };
+		18F83E4120DCD163007DE0A5 /* JKPhtotProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhtotProgressView.h; sourceTree = "<group>"; };
+		18F83E4220DCD163007DE0A5 /* JKPhtotPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotPageView.m; sourceTree = "<group>"; };
+		18F83E4320DCD163007DE0A5 /* JKPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhotoBrowserView.m; sourceTree = "<group>"; };
+		18F83E4420DCD163007DE0A5 /* JKPhtotProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPhtotProgressView.m; sourceTree = "<group>"; };
+		18F83E4620DCD163007DE0A5 /* JKPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoModel.h; sourceTree = "<group>"; };
+		18F83E4720DCD163007DE0A5 /* JKPhotoBrowserDataSouce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDataSouce.h; sourceTree = "<group>"; };
+		18F83E4820DCD163007DE0A5 /* JKPhotoIndexPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoIndexPage.h; sourceTree = "<group>"; };
+		18F83E4920DCD163007DE0A5 /* JKPhotoBrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserDelegate.h; sourceTree = "<group>"; };
+		18F83E4A20DCD163007DE0A5 /* JKPhotoBrowserStateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoBrowserStateProtocol.h; sourceTree = "<group>"; };
+		18F83E4B20DCD163007DE0A5 /* JKPhotoTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoTransitionProtocol.h; sourceTree = "<group>"; };
+		18F83E4D20DCD163007DE0A5 /* JKPhotoMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPhotoMacro.h; sourceTree = "<group>"; };
 		55C78092177D7BE74792AC85 /* Pods-JKPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		5EBBAD1CEFD18382DA55EC94 /* libPods-JKPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKPhotoBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B4C02091BF268D8F9A3604 /* Pods-JKPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKPhotoBrowser/Pods-JKPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		1849D3B720B53E1300697616 /* JKPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				18F83DFE20DCAAE5007DE0A5 /* JKPhotoBrowserKit */,
+				18F83E2A20DCD163007DE0A5 /* JKPhotoBrowserKit */,
 				18D7DA4B20BD47C800C511E5 /* LocalImages */,
 				1849D3B820B53E1300697616 /* AppDelegate.h */,
 				1849D3B920B53E1300697616 /* AppDelegate.m */,
@@ -168,84 +168,100 @@
 			path = LocalImages;
 			sourceTree = "<group>";
 		};
-		18F83DFE20DCAAE5007DE0A5 /* JKPhotoBrowserKit */ = {
+		18F83E2A20DCD163007DE0A5 /* JKPhotoBrowserKit */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E0020DCAAE5007DE0A5 /* Manger */,
-				18F83E0520DCAAE5007DE0A5 /* CoreStructure */,
-				18F83E1620DCAAE5007DE0A5 /* Protocol */,
-				18F83E1D20DCAAE5007DE0A5 /* Utilities */,
-				18F83E1F20DCAAE5007DE0A5 /* JKPhotoBrowser.h */,
-				18F83DFF20DCAAE5007DE0A5 /* JKPhotoBrowser.m */,
+				18F83E2B20DCD163007DE0A5 /* Manger */,
+				18F83E3020DCD163007DE0A5 /* CoreStructure */,
+				18F83E4520DCD163007DE0A5 /* Protocol */,
+				18F83E4C20DCD163007DE0A5 /* Utilities */,
 			);
 			path = JKPhotoBrowserKit;
 			sourceTree = SOURCE_ROOT;
 		};
-		18F83E0020DCAAE5007DE0A5 /* Manger */ = {
+		18F83E2B20DCD163007DE0A5 /* Manger */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E0120DCAAE5007DE0A5 /* JKPhotoTransitionConfig.h */,
-				18F83E0220DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.h */,
-				18F83E0320DCAAE5007DE0A5 /* JKPhotoTransitionConfig.m */,
-				18F83E0420DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.m */,
+				18F83E2C20DCD163007DE0A5 /* JKPhotoTransitionConfig.h */,
+				18F83E2D20DCD163007DE0A5 /* JKPhotoSavePhotoManger.h */,
+				18F83E2E20DCD163007DE0A5 /* JKPhotoTransitionConfig.m */,
+				18F83E2F20DCD163007DE0A5 /* JKPhotoSavePhotoManger.m */,
 			);
 			path = Manger;
 			sourceTree = "<group>";
 		};
-		18F83E0520DCAAE5007DE0A5 /* CoreStructure */ = {
+		18F83E3020DCD163007DE0A5 /* CoreStructure */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E1420DCAAE5007DE0A5 /* JKImageModel.h */,
-				18F83E0620DCAAE5007DE0A5 /* JKImageModel.m */,
-				18F83E0820DCAAE5007DE0A5 /* Cell */,
-				18F83E0D20DCAAE5007DE0A5 /* View */,
-				18F83E0720DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */,
-				18F83E1520DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */,
+				18F83E3120DCD163007DE0A5 /* JKPhotoBrowser.m */,
+				18F83E3220DCD163007DE0A5 /* Cell */,
+				18F83E3720DCD163007DE0A5 /* JKPhotoBrowser.h */,
+				18F83E3820DCD163007DE0A5 /* Transitioning */,
+				18F83E3B20DCD163007DE0A5 /* Model */,
+				18F83E3E20DCD163007DE0A5 /* View */,
 			);
 			path = CoreStructure;
 			sourceTree = "<group>";
 		};
-		18F83E0820DCAAE5007DE0A5 /* Cell */ = {
+		18F83E3220DCD163007DE0A5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E0920DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */,
-				18F83E0A20DCAAE5007DE0A5 /* JKPhotoBrowserCell.h */,
-				18F83E0B20DCAAE5007DE0A5 /* JKPhotoBrowserCell.m */,
-				18F83E0C20DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.h */,
+				18F83E3320DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.m */,
+				18F83E3420DCD163007DE0A5 /* JKPhotoBrowserCell.h */,
+				18F83E3520DCD163007DE0A5 /* JKPhotoBrowserCell.m */,
+				18F83E3620DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.h */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		18F83E0D20DCAAE5007DE0A5 /* View */ = {
+		18F83E3820DCD163007DE0A5 /* Transitioning */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E0E20DCAAE5007DE0A5 /* JKPhtotPageView.h */,
-				18F83E1020DCAAE5007DE0A5 /* JKPhtotProgressView.h */,
-				18F83E1120DCAAE5007DE0A5 /* JKPhtotPageView.m */,
-				18F83E0F20DCAAE5007DE0A5 /* JKPhotoBrowserView.h */,
-				18F83E1220DCAAE5007DE0A5 /* JKPhotoBrowserView.m */,
-				18F83E1320DCAAE5007DE0A5 /* JKPhtotProgressView.m */,
+				18F83E3920DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */,
+				18F83E3A20DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */,
+			);
+			path = Transitioning;
+			sourceTree = "<group>";
+		};
+		18F83E3B20DCD163007DE0A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F83E3C20DCD163007DE0A5 /* JKImageModel.m */,
+				18F83E3D20DCD163007DE0A5 /* JKImageModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18F83E3E20DCD163007DE0A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18F83E3F20DCD163007DE0A5 /* JKPhtotPageView.h */,
+				18F83E4020DCD163007DE0A5 /* JKPhotoBrowserView.h */,
+				18F83E4120DCD163007DE0A5 /* JKPhtotProgressView.h */,
+				18F83E4220DCD163007DE0A5 /* JKPhtotPageView.m */,
+				18F83E4320DCD163007DE0A5 /* JKPhotoBrowserView.m */,
+				18F83E4420DCD163007DE0A5 /* JKPhtotProgressView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		18F83E1620DCAAE5007DE0A5 /* Protocol */ = {
+		18F83E4520DCD163007DE0A5 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E1720DCAAE5007DE0A5 /* JKPhotoModel.h */,
-				18F83E1820DCAAE5007DE0A5 /* JKPhotoBrowserDataSouce.h */,
-				18F83E1920DCAAE5007DE0A5 /* JKPhotoIndexPage.h */,
-				18F83E1A20DCAAE5007DE0A5 /* JKPhotoBrowserDelegate.h */,
-				18F83E1B20DCAAE5007DE0A5 /* JKPhotoBrowserStateProtocol.h */,
-				18F83E1C20DCAAE5007DE0A5 /* JKPhotoTransitionProtocol.h */,
+				18F83E4620DCD163007DE0A5 /* JKPhotoModel.h */,
+				18F83E4720DCD163007DE0A5 /* JKPhotoBrowserDataSouce.h */,
+				18F83E4820DCD163007DE0A5 /* JKPhotoIndexPage.h */,
+				18F83E4920DCD163007DE0A5 /* JKPhotoBrowserDelegate.h */,
+				18F83E4A20DCD163007DE0A5 /* JKPhotoBrowserStateProtocol.h */,
+				18F83E4B20DCD163007DE0A5 /* JKPhotoTransitionProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		18F83E1D20DCAAE5007DE0A5 /* Utilities */ = {
+		18F83E4C20DCD163007DE0A5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				18F83E1E20DCAAE5007DE0A5 /* JKPhotoMacro.h */,
+				18F83E4D20DCD163007DE0A5 /* JKPhotoMacro.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -360,20 +376,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F83E2120DCAAE5007DE0A5 /* JKPhotoTransitionConfig.m in Sources */,
+				18F83E5620DCD163007DE0A5 /* JKPhotoBrowserView.m in Sources */,
+				18F83E5520DCD163007DE0A5 /* JKPhtotPageView.m in Sources */,
+				18F83E5320DCD163007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */,
 				1849D3BD20B53E1300697616 /* ViewController.m in Sources */,
-				18F83E2420DCAAE5007DE0A5 /* JKPhotoBrowserViewFlowLayout.m in Sources */,
-				18F83E2320DCAAE5007DE0A5 /* JKImageModel.m in Sources */,
-				18F83E2920DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m in Sources */,
-				18F83E2820DCAAE5007DE0A5 /* JKPhtotProgressView.m in Sources */,
-				18F83E2520DCAAE5007DE0A5 /* JKPhotoBrowserCell.m in Sources */,
-				18F83E2620DCAAE5007DE0A5 /* JKPhtotPageView.m in Sources */,
-				18F83E2220DCAAE5007DE0A5 /* JKPhotoSavePhotoManger.m in Sources */,
 				1849D3C820B53E1600697616 /* main.m in Sources */,
-				18F83E2020DCAAE5007DE0A5 /* JKPhotoBrowser.m in Sources */,
-				18F83E2720DCAAE5007DE0A5 /* JKPhotoBrowserView.m in Sources */,
+				18F83E5420DCD163007DE0A5 /* JKImageModel.m in Sources */,
 				187D2C4820D8E05900495ED3 /* JKPhotoBrowserTopView.m in Sources */,
+				18F83E5220DCD163007DE0A5 /* JKPhotoBrowserCell.m in Sources */,
+				18F83E5720DCD163007DE0A5 /* JKPhtotProgressView.m in Sources */,
+				18F83E4E20DCD163007DE0A5 /* JKPhotoTransitionConfig.m in Sources */,
 				1849D3BA20B53E1300697616 /* AppDelegate.m in Sources */,
+				18F83E5120DCD163007DE0A5 /* JKPhotoBrowserViewFlowLayout.m in Sources */,
+				18F83E5020DCD163007DE0A5 /* JKPhotoBrowser.m in Sources */,
+				18F83E4F20DCD163007DE0A5 /* JKPhotoSavePhotoManger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
