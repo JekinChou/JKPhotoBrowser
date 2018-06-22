@@ -11,7 +11,7 @@
 #import "JKPhotoMacro.h"
 #import "JKPhotoTransitionProtocol.h"
 
-@interface JKPhotoTransitionConfig : NSObject
+@interface JKPhotoTransitionConfig : NSObject<JKPhotoTransitionProtocol>
 
 /**
  入场动画类型
@@ -26,17 +26,5 @@
  转场动画持续时间
  */
 @property (nonatomic, assign) NSTimeInterval transitionDuration;
-
-/**
- 取消拖拽图片的动画效果
- */
-@property (nonatomic, assign) BOOL cancelDragImageViewAnimation;
-
-/**
- 拖拽图片动效触发出场的比例（拖动距离/屏幕高度 默认0.15）
- */
-@property (nonatomic, assign) CGFloat outScaleOfDragImageViewAnimation;
-
-
 
 @end

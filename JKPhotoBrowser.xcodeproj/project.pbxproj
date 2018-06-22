@@ -171,12 +171,12 @@
 		18F83DFE20DCAAE5007DE0A5 /* JKPhotoBrowserKit */ = {
 			isa = PBXGroup;
 			children = (
-				18F83DFF20DCAAE5007DE0A5 /* JKPhotoBrowser.m */,
 				18F83E0020DCAAE5007DE0A5 /* Manger */,
 				18F83E0520DCAAE5007DE0A5 /* CoreStructure */,
 				18F83E1620DCAAE5007DE0A5 /* Protocol */,
 				18F83E1D20DCAAE5007DE0A5 /* Utilities */,
 				18F83E1F20DCAAE5007DE0A5 /* JKPhotoBrowser.h */,
+				18F83DFF20DCAAE5007DE0A5 /* JKPhotoBrowser.m */,
 			);
 			path = JKPhotoBrowserKit;
 			sourceTree = SOURCE_ROOT;
@@ -195,11 +195,11 @@
 		18F83E0520DCAAE5007DE0A5 /* CoreStructure */ = {
 			isa = PBXGroup;
 			children = (
+				18F83E1420DCAAE5007DE0A5 /* JKImageModel.h */,
 				18F83E0620DCAAE5007DE0A5 /* JKImageModel.m */,
-				18F83E0720DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */,
 				18F83E0820DCAAE5007DE0A5 /* Cell */,
 				18F83E0D20DCAAE5007DE0A5 /* View */,
-				18F83E1420DCAAE5007DE0A5 /* JKImageModel.h */,
+				18F83E0720DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.h */,
 				18F83E1520DCAAE5007DE0A5 /* JKPhtotBrowserAnimatedTransitioning.m */,
 			);
 			path = CoreStructure;
@@ -220,9 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				18F83E0E20DCAAE5007DE0A5 /* JKPhtotPageView.h */,
-				18F83E0F20DCAAE5007DE0A5 /* JKPhotoBrowserView.h */,
 				18F83E1020DCAAE5007DE0A5 /* JKPhtotProgressView.h */,
 				18F83E1120DCAAE5007DE0A5 /* JKPhtotPageView.m */,
+				18F83E0F20DCAAE5007DE0A5 /* JKPhotoBrowserView.h */,
 				18F83E1220DCAAE5007DE0A5 /* JKPhotoBrowserView.m */,
 				18F83E1320DCAAE5007DE0A5 /* JKPhtotProgressView.m */,
 			);

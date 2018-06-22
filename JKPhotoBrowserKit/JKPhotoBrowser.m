@@ -88,6 +88,8 @@ JKPhotoBrowserViewDelegate> {
 - (void)setConfigInfoToChildModules {
     self.browserView.autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
     self.browserView.screenImageViewFillType = self.screenImageViewFillType;
+    self.browserView.outScaleOfDragImageViewAnimation = self.transitionConfig.outScaleOfDragImageViewAnimation;
+    self.browserView.cancelDragImageViewAnimation = self.transitionConfig.cancelDragImageViewAnimation;
     ((JKPhotoBrowserViewFlowLayout *)self.browserView.collectionViewLayout).space = self.space;
 }
 - (void)registerNotification {

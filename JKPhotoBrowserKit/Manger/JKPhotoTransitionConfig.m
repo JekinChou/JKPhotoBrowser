@@ -9,5 +9,11 @@
 #import "JKPhotoTransitionConfig.h"
 
 @implementation JKPhotoTransitionConfig
-
+    @synthesize cancelDragImageViewAnimation = _cancelDragImageViewAnimation,outScaleOfDragImageViewAnimation = _outScaleOfDragImageViewAnimation,autoCountMaximumZoomScale = _autoCountMaximumZoomScale;
+    
+    
+- (CGFloat)outScaleOfDragImageViewAnimation {
+    if(_outScaleOfDragImageViewAnimation<0)return 0;
+    return _outScaleOfDragImageViewAnimation;
+}
 @end
