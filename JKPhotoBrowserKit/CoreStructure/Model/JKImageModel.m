@@ -9,7 +9,7 @@
 #import "JKImageModel.h"
 #import <YYWebImage/YYWebImage.h>
 #import "JKPhotoMacro.h"
-#import <YYImageCoder.h>
+#import <YYImage/YYImageCoder.h>
 @interface JKImageModel () {
     YYWebImageOperation *_currentOperation;
 }
