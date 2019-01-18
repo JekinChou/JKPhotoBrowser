@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YYImage.h>
+#import <YYImage/YYImage.h>
 @interface JKPhotoSavePhotoManger : NSObject
 +(void)judgeAlbumAuthorizationStatusSuccess:(os_block_t)successful;
 +(void)saveImageToAlbumWithImage:(UIImage *)image withCompletion:(void(^)(BOOL successful))completion;
