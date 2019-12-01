@@ -122,13 +122,19 @@ JKPhotoBrowserViewDelegate> {
     if (self.browserView.isHidden) self.browserView.hidden = NO;
 }
 - (void)phtotBrowserShouldHideWithNotification:(NSNotification *)notification {
-     if (!self.browserView.isHidden)  self.browserView.hidden = YES;
+    if (!self.browserView.isHidden)  self.browserView.hidden = YES;
 }
 
 //控制状态栏
 - (void)configStatusBarHide:(BOOL)hiden {
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-    statusBar.alpha = !hiden;
+    if (@available(iOS 13.0, *)) {
+        UIView *_localStatusBar = [[UIApplication sharedApplication].keyWindow.windowScene.statusBarManager performSelector:@selector(createLocalStatusBar)];
+        UIView * statusBar = [_localStatusBar performSelector:@selector(statusBar)];
+        statusBar.alpha = !hiden;
+    } else {
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        statusBar.alpha = !hiden;
+    }
 }
 - (void)getStatusBarConfigByInfoPlist {
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
@@ -150,12 +156,12 @@ JKPhotoBrowserViewDelegate> {
     } else if (_dataSource && [_dataSource respondsToSelector:@selector(numberInPhotoBrowser:)]) {
         if (![_dataSource numberInPhotoBrowser:self]) return;
     } else{
-      return;
+        return;
     }
     [controller presentViewController:self animated:YES completion:nil];
 }
 - (void)dismiss {
-   [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark UIViewControllerTransitioningDelegate
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
