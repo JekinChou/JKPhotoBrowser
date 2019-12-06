@@ -223,7 +223,9 @@ static UIView<JKPhotoBrowserStateProtocol> *_progressView;
 
 //计算图片大小核心代码
 + (void)countWithContainerSize:(CGSize)containerSize image:(YYImage *)image verticalFillType:(JKImageBrowserImageViewFillType)verticalFillType  completed:(void(^)(CGRect _imageFrame, CGSize _contentSize, CGFloat _minimumZoomScale, CGFloat _maximumZoomScale))completed {
-    
+    if (image == nil ) {
+           return ;
+    }
     CGSize imageSize = image.size;
     CGFloat containerWidth = containerSize.width;
     CGFloat containerHeight = containerSize.height;

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "JKPhotoBrowser"
-s.version      = "1.0.5.2"
+s.version      = "1.0.5.3"
 s.summary      = "图片浏览器(仿微博)."
 s.homepage     = "https://github.com/JekinChou/JKPhotoBrowser"
 s.license      = { :type => "MIT", :file => "LICENSE" }
