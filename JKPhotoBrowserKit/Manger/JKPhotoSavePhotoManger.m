@@ -10,7 +10,9 @@
 #import <Photos/PHPhotoLibrary.h>
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-#import <YYWebImage/YYWebImageManager.h>
+#import <YYWebImage/YYWebImage.h>
+//#import <YYWebImage/YYWebImageManager.h>
+
 
 @implementation JKPhotoSavePhotoManger
 +(void)judgeAlbumAuthorizationStatusSuccess:(os_block_t)successful {
