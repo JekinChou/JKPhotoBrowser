@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <YYImage/YYImage.h>
 @interface JKPhotoSavePhotoManger : NSObject
-+(void)judgeAlbumAuthorizationStatusSuccess:(os_block_t)successful;
-+(void)saveImageToAlbumWithImage:(UIImage *)image withCompletion:(void(^)(BOOL successful))completion;
++(void)judgeAlbumAuthorizationStatusSuccess:(os_block_t _Nullable )successful;
++(void)saveImageToAlbumWithImage:(UIImage *_Nonnull)image withCompletion:(void(^_Nonnull)(BOOL successful))completion;
++(void)saveImageToAlbumWithUrl:(NSURL * _Nonnull)url withProgress:(void(^_Nonnull)(NSInteger receivedSize, NSInteger expectedSize))progress withResult:(void(^_Nonnull)(BOOL result, NSString *_Nonnull desc))result;
 @end

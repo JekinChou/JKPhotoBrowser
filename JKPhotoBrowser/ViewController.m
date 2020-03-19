@@ -110,7 +110,12 @@ static NSString * const kReuseIdentifierOfHeader = @"UICollectionReusableViewHea
  */
 - (void)photoBrowser:(JKPhotoBrowser *)browser longPressWithIndex:(NSInteger)index {
     if (browser.currentIndex == index) {
-        NSLog(@"长按%ld",(long)index);
+        NSString *url = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1584608172&di=822975e395815e0e4278461e14bec1f0&src=http://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg";
+        [JKPhotoSavePhotoManger saveImageToAlbumWithUrl:[NSURL URLWithString:url] withProgress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } withResult:^(BOOL result, NSString *desc) {
+            
+        }];
     }
 }
 
